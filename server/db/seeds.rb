@@ -24,9 +24,9 @@ plan2 = Plan.create(name: 'All Might',
                     img: 'https://carboncostume.com/wordpress/wp-content/uploads/2022/01/skinnyallmight-mha-character.png')
 plan3 = Plan.create(name: 'Biscuit Krueger', img: 'https://www.siliconera.com/wp-content/uploads/2019/05/cnEnrna.jpg')
 plan4 = Plan.create(name: 'Gojo Satoru',
-                    img: 'https://static.wikia.nocookie.net/jujutsu-kaisen/images/5/5a/Satoru_Gojo_arrives_on_the_battlefield_%28Anime%29.png/revision/latest?cb=20210226205256')
+                    img: 'https://sportshub.cbsistatic.com/i/2021/08/09/0e9146a6-322a-4091-8bf4-9b07a0eafeea/jujutsu-kaisen-gojo-domain-expansion-infinite-void-1277091.jpg')
 plan5 = Plan.create(name: 'Goku Son ',
-                    img: 'https://static.wikia.nocookie.net/dragonball/images/b/ba/Goku_anime_profile.png/revision/latest?cb=20220825041430')
+                    img: 'https://m-cdn.phonearena.com/images/article/129526-wide-two_940/Google-Assistants-new-Easter-Egg-recreates-the-first-time-DBZs-Goku-became-a-Super-Saiyan')
 plan6 = Plan.create(name: 'Makima',
                     img: 'https://wegotthiscovered.com/wp-content/uploads/2022/10/makima-chainsaw-man-1.jpg')
 plan7 = Plan.create(name: 'Naruto Uzumaki', img: 'https://i.pinimg.com/564x/69/f6/2b/69f62ba576f9151fa2b96714e62ff9fa.jpg')
