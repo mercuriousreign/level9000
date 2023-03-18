@@ -15,9 +15,6 @@ export default function Application(props) {
       <Navbar />
       <h1>Choose your mission</h1>
       <CardList plans={state.plans} />
-      <p>`${state.users[0]?.email}`</p>
-      <img src="https://i.pinimg.com/474x/c8/af/90/c8af903d667860c8993e46bec640dfa6.jpg" />
-      {/* <img src={state.users[0]?.img} /> */}
     </div>
   );
 }

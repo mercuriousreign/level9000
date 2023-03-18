@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import "./CardList.css";
+import "./Application.css";
 import CardListItem from "./CardListItem";
 
 export default function CardList(props) {
-  return (
-    <CardListItem
-    // key = {props.plans[0]}
-    />
-  );
+  const plans = props.plans.map((plan) => {
+    return <CardListItem key={plan.id} name={plan.name} img={plan.img} />;
+  });
+  return <ul className="cards">{plans}</ul>;
 }

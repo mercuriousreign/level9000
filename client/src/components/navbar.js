@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./navbar.css";
 
 export default function Navbar(props) {
-  console.log("props inside navbar", props.plans[1].img);
   return (
     <nav className="navbar">
       <div className="navbar-container">
