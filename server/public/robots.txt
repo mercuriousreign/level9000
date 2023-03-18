@@ -1,1 +1,12 @@
 # See https://www.robotstxt.org/robotstxt.html for documentation on how to use the robots.txt file
+
+alex louis: 'https://www.flyingmachinestudios.com/assets/images/posts/leiningen/so-sparkly.png'
+all might: 'https://carboncostume.com/wordpress/wp-content/uploads/2022/01/skinnyallmight-mha-character.png'
+biscut: 'https://www.siliconera.com/wp-content/uploads/2019/05/cnEnrna.jpg'
+gojo: 'https://static.wikia.nocookie.net/jujutsu-kaisen/images/5/5a/Satoru_Gojo_arrives_on_the_battlefield_%28Anime%29.png/revision/latest?cb=20210226205256'
+wukong: 'https://static.wikia.nocookie.net/dragonball/images/b/ba/Goku_anime_profile.png/revision/latest?cb=20220825041430'
+makima: 'https://wegotthiscovered.com/wp-content/uploads/2022/10/makima-chainsaw-man-1.jpg'
+naruto: 'https://i.pinimg.com/564x/69/f6/2b/69f62ba576f9151fa2b96714e62ff9fa.jpg'
+nezuko: 'https://i.pinimg.com/originals/07/d9/be/07d9be68364fada956c5417ea28ebc9a.png'
+potato: 'https://safifer.files.wordpress.com/2011/10/potato-baking-img_4841.jpg'
+saitama: 'https://qph.cf2.quoracdn.net/main-qimg-c8010b4775bf02d599e659ae309f863e-pjlq'
