@@ -10,7 +10,7 @@ export default function Application(props) {
   //
   // }, [users]);
   // console.log("Users:", state.users);
-  console.log("testing exercises", state.exercises);
+  console.log("testing exercises", state.plans);
   return (
     <div className="App">
       <Navbar />
