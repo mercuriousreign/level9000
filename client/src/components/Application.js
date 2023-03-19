@@ -9,7 +9,8 @@ export default function Application(props) {
   // useEffect(() => {
   //
   // }, [users]);
-  console.log("Users:", state.users);
+  // console.log("Users:", state.users);
+  console.log("testing exercises", state.exercises);
   return (
     <div className="App">
       <Navbar />
