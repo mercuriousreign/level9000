@@ -15,7 +15,7 @@ export default function Application(props) {
     <div className="App">
       <Navbar />
       <h1>Choose your mission</h1>
-      <CardList plans={state.plans} />
+      <CardList plans={state.plans} exercises={state.exercises} />
     </div>
   );
 }
