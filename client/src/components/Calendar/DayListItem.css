@@ -1,12 +1,13 @@
 .calendar {
   border-style: dotted;
   display: grid;
+  grid-template-columns: repeat(7, 1fr);
 }
 
 .day {
   border-style: dotted;
-  width: 40vw;
-  height: 40vw;
+  width: 20vw;
+  height: 20vw;
   list-style-type: none;
   margin: 2em;
   padding-bottom: 0%;
