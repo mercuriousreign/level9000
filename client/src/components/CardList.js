@@ -236,7 +236,7 @@ export default function CardList(props) {
       <CardListItem
         name={plan.name}
         img={plan.img}
-        exercise={exercises[index].map((i) => props.exercises[i])}
+        exercise={exercises[Number(index)].map((i) => props.exercises[i])}
       />
     </li>
   ));
