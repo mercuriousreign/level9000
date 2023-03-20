@@ -1,0 +1,22 @@
+.calendar {
+  border-style: dotted;
+  display: grid;
+}
+
+.day {
+  border-style: dotted;
+  width: 40vw;
+  height: 40vw;
+  list-style-type: none;
+  margin: 2em;
+  padding-bottom: 0%;
+
+}
+
+.square {
+  width: 100%;
+  height: 0;
+  padding-top: 100%;
+  background-color: #ccc;
+  border-style: dotted;
+}
