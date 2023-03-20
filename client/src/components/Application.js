@@ -5,6 +5,7 @@ import useApplicationData from "../hooks/useApplicationData";
 import CardList from "./CardList";
 import Login from "./Login";
 import ProgressBar from "./ProgressBar";
+import Counter from "./Counter";
 
 export default function Application(props) {
 
@@ -20,7 +21,11 @@ export default function Application(props) {
     setInterval(() => setCompleted(Math.floor(Math.random() * 100) + 1), 2000);
   }, []);
 
+  const [progress, setProgress] = useState(0);
 
+  function handleCountChange(count) {
+    setProgress((count/6) * 100);
+  }
   
 ////*****************************************************
 
@@ -47,12 +52,16 @@ export default function Application(props) {
 
       {screen == "/Login" && <Login/> }
 
-      {screen == "/User" && testData.map((item, idx) => (
+      {/* {screen == "/User" && testData.map((item, idx) => (
         <ProgressBar key={idx} bgcolor={item.bgcolor} completed={item.completed} />
         // <ProgressBar bgcolor={"#6a1b9a"} completed={completed} />
-      ))}
+      ))
+      }
+      {screen == "/User" && <Counter/>} */}
 
-
+      {screen == "/User" && <Counter onCountChange={handleCountChange} />}
+      {screen == "/User" && <ProgressBar bgcolor='#6a1b9a' completed={progress}/>}
+     
     </div>
   );
 }
