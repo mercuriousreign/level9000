@@ -9,12 +9,13 @@ export default function Application(props) {
   // useEffect(() => {
   //
   // }, [users]);
-  console.log("Users:", state.users);
+  // console.log("Users:", state.users);
+  console.log("testing exercises", state.plans);
   return (
     <div className="App">
       <Navbar />
       <h1>Choose your mission</h1>
-      <CardList plans={state.plans} />
+      <CardList plans={state.plans} exercises={state.exercises} />
     </div>
   );
 }
