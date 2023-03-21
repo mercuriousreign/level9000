@@ -74,4 +74,4 @@ storiesOf("Navbar",module)
 .add("Base",()=><Navbar/>)
 
 storiesOf("Userpage",module)
-.add("Base",()=><UserPage month="January" days={dayObj}/>)
+.add("Base",()=><UserPage month="January" days={dayObj} img="/logo192.png"/>)

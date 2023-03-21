@@ -7,8 +7,8 @@ export default function DayListItem(props) {
   return (
     <div className="day">
       <h2 className="datefont">{date}</h2>
+      <img className="imgicon" src={img}/>
       <h2 className="">{plan}</h2>
-      <img className="" src={img}/>
     </div>
 
   )

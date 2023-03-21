@@ -1,5 +1,6 @@
 .calendar {
   border-style: dotted;
+  object-fit: contain;
   display: flex;
   grid-template-columns: repeat(7, 1fr);
   flex-wrap: wrap; 
@@ -8,8 +9,9 @@
 
 .day {
   border-style: dotted;
-  width: 20vw;
-  height: 20vw;
+  /* width: 20vw;
+  height: 20vw; */
+  object-fit: contain;
   list-style-type: none;
   margin: 2em;
   padding-bottom: 0%;
@@ -26,4 +28,10 @@
 
 .datefont {
   font-size: 2vw;
+}
+
+.imgicon
+{
+  object-fit: contain;
+  width: 70%;
 }
