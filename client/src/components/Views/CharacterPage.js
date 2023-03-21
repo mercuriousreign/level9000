@@ -6,8 +6,8 @@ import DayListItem from "../Calendar/DayListItem";
 import ProgressBar from "../Calendar/Progressbar";
 import "../Calendar/DayListItem.css"
 import CardListItem from "../CardListItem";
-import Card from "antd";
-import Button from "antd";
+import {Card,Button} from "antd";
+//import Button from "antd";
 
 export default function CharacterPage(props){
   const { name, img, exercise,description} = props;
@@ -19,7 +19,24 @@ export default function CharacterPage(props){
   return (
     //<CardListItem name={name} img={img}/>
     <div><Navbar/>
+    <Card hoverable
+    style={{
+      width: 400,
+    }}
+    
+    cover={<img src={props.img}></img>}
+    
+    >
+      <h1>{props.name}</h1>
+      <p>Muscle target : {props.muscle}</p>
+      <p>{props.description}</p>
+      <ul>
+      <Button>Add to regiment</Button>
+      <Button>Start this exercise</Button>
+      </ul>
+      </Card>
     <div>
+    
       <h1>{props.name}</h1>
       <img src={props.img}></img>
       <p>Muscle target :{props.muscle}</p>

@@ -1,17 +1,27 @@
 import React from "react";
-import { Card } from "antd";
+import { Card , Button } from "antd";
 
 export default function CharacterCardItem (props) {
   
   return (
-    <Card
-    hoverable
+    <div>
+      <Card hoverable
     style={{
-      width: 240,
+      width: 400,
     }}
-    cover={<img alt="example" src={props.img} />}
-  >
-    <Meta title={props.name} description={props.description} />
-    </Card>
+    
+    cover={<img src={props.img}></img>}
+    
+    >
+      <h1>{props.name}</h1>
+      <p>Muscle target : {props.muscle}</p>
+      <p>{props.description}</p>
+      <ul>
+      <Button>Add to regiment</Button>
+      <Button>Start this exercise</Button>
+      </ul>
+      </Card>
+    </div>
+  
   )
 }
