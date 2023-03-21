@@ -1,0 +1,59 @@
+.buttoncalendar {
+  border-radius: 1rem;
+  border: 0;
+  font-size: 1.5rem;
+  height: 2rem;
+  line-height: 1.2rem;
+  margin-right: 1rem;
+  width: 3rem;
+  border-width: 2px;
+  border-style: solid;
+  border-color: darkslategray;
+  color: white;
+  background-color: grey;
+}
+
+.buttoncalendar--default {
+  border-radius: 1rem;
+  border: 0;
+  font-size: 1.5rem;
+  height: 2rem;
+  line-height: 1.2rem;
+  margin-right: 1rem;
+  width: 19rem;
+  border-width: 2px;
+  border-style: solid;
+  border-color: darkslategray;
+  color: white;
+  background-color: grey;
+}
+
+.buttoncalendar--confirm {
+  border-radius: 1rem;
+  border: 0;
+  font-size: 1.5rem;
+  height: 2rem;
+  line-height: 1.2rem;
+  margin-right: 1rem;
+  width: 2rem;
+  border-width: 2px;
+  border-style: solid;
+  border-color: darkslategray;
+  color: white;
+  background-color: darkgreen;
+}
+
+.buttoncalendar--danger {
+  border-radius: 1rem;
+  border: 0;
+  font-size: 1.5rem;
+  height: 2rem;
+  line-height: 1.2rem;
+  margin-right: 1rem;
+  width: 2rem;
+  border-width: 2px;
+  border-style: solid;
+  border-color: darkslategray;
+  color: white;
+  background-color: red;
+}

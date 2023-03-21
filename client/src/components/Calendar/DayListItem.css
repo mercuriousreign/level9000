@@ -1,0 +1,46 @@
+.calendar {
+  border-style: dotted;
+  object-fit: contain;
+  display: flex;
+  grid-template-columns: repeat(7, 1fr);
+  flex-wrap: wrap; 
+
+}
+
+.day {
+  border-style: dotted;
+  /* width: 20vw;
+  height: 20vw; */
+  object-fit: contain;
+  list-style-type: none;
+  margin: 0em;
+  padding-bottom: 0%;
+
+}
+
+
+.calendarborder{
+  border-style: dotted;
+}
+
+/* .square {
+  width: 100%;
+  height: 0;
+  padding-top: 100%;
+  background-color: #ccc;
+  border-style: dotted;
+} */
+
+.datefont {
+  font-size: 2vw;
+}
+.headerfont{
+  font-size: 9vw;
+  text-align: center;
+}
+
+.imgicon
+{
+  object-fit: contain;
+  width: 70%;
+}
