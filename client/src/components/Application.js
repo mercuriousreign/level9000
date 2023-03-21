@@ -6,6 +6,7 @@ import CardList from "./CardList";
 import Login from "./Login";
 import ProgressBar from "./ProgressBar";
 import Counter from "./Counter";
+import CompletedButton from "./CompletedButton";
 
 export default function Application(props) {
 
@@ -49,6 +50,8 @@ export default function Application(props) {
       {screen == "/" && <h1>Welcom to Level9000. Work out plans designed to make as strong as your Hero
         Each plan consists of 6 excercises. You'll do one excerxise as many times as possible each day plus on rest day. 
         Now choose your challenge:</h1>}
+
+      {screen == "/" && <CompletedButton/>}
 
       {screen == "/" && <CardList plans={state.plans} exercises={state.exercises} />}
 
