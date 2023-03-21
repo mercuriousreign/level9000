@@ -12,8 +12,11 @@ export default function Calendar(props) {
   })
 
   return (
-  <div className="calendar">
+  <div>
     <h1>{props.month}</h1>
+    <div className="calendar">
     {plans}
-    </div>)
+    </div>
+  </div>
+    )
 }
