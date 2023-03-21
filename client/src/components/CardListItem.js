@@ -30,9 +30,10 @@
 
 import React from "react";
 import "./CardListItem.css";
+import Button from "./Button";
 
 export default function CardListItem(props) {
-  const { name, img, exercise } = props;
+  const { name, img, exercise, onSelect, isSelected } = props;
   console.log("exercise props here", exercise);
 
   const exerciseList = exercise.map((e) => (
@@ -47,6 +48,10 @@ export default function CardListItem(props) {
       <h2 className="">{name}</h2>
       <img className="" src={img} />
       {exerciseList}
+      <Button plan={name} selected={isSelected} onSelect={onSelect} />
     </div>
   );
 }
+
+
+

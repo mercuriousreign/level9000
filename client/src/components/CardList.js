@@ -211,12 +211,16 @@
 //   );
 // }
 
-import React from "react";
+import React, {useState} from "react";
 import "./Application.css";
 import CardListItem from "./CardListItem";
 
 export default function CardList(props) {
   console.log("Props plans inside cardlist", props.plans);
+
+  const [selectedPlan, setSelectedPlan] = useState(null);
+
+
 
   const exercises = [
     [0, 1, 2, 3, 4, 5],
@@ -237,9 +241,14 @@ export default function CardList(props) {
         name={plan.name}
         img={plan.img}
         exercise={exercises[Number(index)].map((i) => props.exercises[i])}
+        // isSelected={selectedPlan === plan.id}
+        isSelected={selectedPlan}
+        onSelect={() => setSelectedPlan(plan.id)}
+
       />
     </li>
   ));
 
   return <ul className="cards">{plans}</ul>;
 }
+

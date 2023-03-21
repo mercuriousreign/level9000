@@ -24,7 +24,7 @@ export default function ProgressBar(props) {
   return (
     <div style={containerStyles}>
       <div style={fillerStyles}></div>
-      {completed === 100 && <strong>Great Success!</strong>}
+      {completed === 100 && <strong style={{ fontSize: '30px' }}>Great Success!</strong>}
     </div>
   );
 }

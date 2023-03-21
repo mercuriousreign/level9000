@@ -26,7 +26,7 @@ export default function Application(props) {
   function handleCountChange(count) {
     setProgress((count/6) * 100);
   }
-  
+
 ////*****************************************************
 
 ////**************** COnditional page rendering *************************
@@ -46,18 +46,14 @@ export default function Application(props) {
   return (
     <div className="App">
       <Navbar />
-      <h1>Choose your mission</h1>
-      {/* <CardList plans={state.plans} />  */}
+      {screen == "/" && <h1>Welcom to Level9000. Work out plans designed to make as strong as your Hero
+        Each plan consists of 6 excercises. You'll do one excerxise as many times as possible each day plus on rest day. 
+        Now choose your challenge:</h1>}
+
       {screen == "/" && <CardList plans={state.plans} exercises={state.exercises} />}
 
       {screen == "/Login" && <Login/> }
 
-      {/* {screen == "/User" && testData.map((item, idx) => (
-        <ProgressBar key={idx} bgcolor={item.bgcolor} completed={item.completed} />
-        // <ProgressBar bgcolor={"#6a1b9a"} completed={completed} />
-      ))
-      }
-      {screen == "/User" && <Counter/>} */}
 
       {screen == "/User" && <Counter onCountChange={handleCountChange} />}
       {screen == "/User" && <ProgressBar bgcolor='#6a1b9a' completed={progress}/>}
