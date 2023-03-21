@@ -13,9 +13,14 @@
   height: 20vw; */
   object-fit: contain;
   list-style-type: none;
-  margin: 2em;
+  margin: 0em;
   padding-bottom: 0%;
 
+}
+
+
+.calendarborder{
+  border-style: dotted;
 }
 
 /* .square {
@@ -28,6 +33,10 @@
 
 .datefont {
   font-size: 2vw;
+}
+.headerfont{
+  font-size: 9vw;
+  text-align: center;
 }
 
 .imgicon
