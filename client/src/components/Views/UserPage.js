@@ -4,6 +4,7 @@ import { Calendar } from "antd";
 import ButtonCalendar from "../Calendar/ButtonCalendar";
 import DayListItem from "../Calendar/DayListItem";
 import ProgressBar from "../Calendar/Progressbar";
+import "../Calendar/DayListItem.css"
 
 
 export default function UserPage(props) {
@@ -44,10 +45,11 @@ export default function UserPage(props) {
   return(
     <div>
     <Navbar/>
-    <div>
+    <h1 className="headerfont">Planned schedule</h1>
+    <div className="calendarborder">
     <Calendar onPanelChange={onPanelChange} dateCellRender={(date)=>dayItem(date)}/>
-    <ProgressBar bgcolor={"#6a1b9a"} completed={68}></ProgressBar>
     </div>
+    <ProgressBar bgcolor={"#6a1b9a"} completed={68}></ProgressBar>
     </div>
   )
 }
