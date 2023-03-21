@@ -9,6 +9,7 @@ import ButtonCalendar from "../components/Calendar/ButtonCalendar";
 import ProgressBar from "../components/Calendar/Progressbar";
 import Navbar from "../components/navbar";
 import UserPage from "../components/Views/UserPage";
+import CharacterPage from "../components/Views/CharacterPage";
 
 // export default {
 //   title:'Progressbar',
@@ -51,6 +52,13 @@ let dayObj = [
   {id:28, date: dateString, img:"/logo192.png"},
   {id:29, date: dateString, img:"/logo192.png"},]
 
+let dummyChar = { 
+  id: 0,
+  name:'Alex Louis Armstrong',
+  img: 'https://www.flyingmachinestudios.com/assets/images/posts/leiningen/so-sparkly.png',
+  description: "Major Alex Louis Armstrong, also known as the Strong Arm Alchemist, is a State Alchemist and officer in the Amestrian State Military. The scion of the illustrious Armstrong family, Alex is a remarkably caring commander and friend as well as an invaluably skilled ally to Colonel Roy Mustang and Edward Elric.",
+  muscle:"strength"}
+
 
 storiesOf("ButtonCalendar", module)
   .add("Base",()=> <ButtonCalendar onClick={action("SetState")} disabled={false} children={""}/>)
@@ -75,3 +83,6 @@ storiesOf("Navbar",module)
 
 storiesOf("Userpage",module)
 .add("Base",()=><UserPage month="January" days={dayObj} img="/logo192.png"/>)
+
+storiesOf("CharacterPage",module)
+.add("Base",()=><CharacterPage name={dummyChar.name} description={dummyChar.description} img={dummyChar.img} muscle={dummyChar.muscle}/>)
