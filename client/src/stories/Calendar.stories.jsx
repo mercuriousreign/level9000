@@ -10,6 +10,7 @@ import ProgressBar from "../components/Calendar/Progressbar";
 import Navbar from "../components/navbar";
 import UserPage from "../components/Views/UserPage";
 import CharacterPage from "../components/Views/CharacterPage";
+import CharacterCardItem from "../components/Character/CharacterCardItem";
 
 // export default {
 //   title:'Progressbar',
@@ -57,7 +58,7 @@ let dummyChar = {
   name:'Alex Louis Armstrong',
   img: 'https://www.flyingmachinestudios.com/assets/images/posts/leiningen/so-sparkly.png',
   description: "Major Alex Louis Armstrong, also known as the Strong Arm Alchemist, is a State Alchemist and officer in the Amestrian State Military. The scion of the illustrious Armstrong family, Alex is a remarkably caring commander and friend as well as an invaluably skilled ally to Colonel Roy Mustang and Edward Elric.",
-  muscle:"strength"}
+  muscle:"Strength"}
 
 
 storiesOf("ButtonCalendar", module)
@@ -86,3 +87,6 @@ storiesOf("Userpage",module)
 
 storiesOf("CharacterPage",module)
 .add("Base",()=><CharacterPage name={dummyChar.name} description={dummyChar.description} img={dummyChar.img} muscle={dummyChar.muscle}/>)
+
+storiesOf("CharacterCardItem",module)
+.add("Base",()=><CharacterCardItem name={dummyChar.name} description={dummyChar.description} img={dummyChar.img} muscle={dummyChar.muscle}/>)
