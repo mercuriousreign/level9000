@@ -5,6 +5,7 @@ import ButtonCalendar from "../Calendar/ButtonCalendar";
 import DayListItem from "../Calendar/DayListItem";
 import ProgressBar from "../Calendar/Progressbar";
 import "../Calendar/DayListItem.css"
+import CharacterPage from "./CharacterPage";
 
 
 export default function UserPage(props) {
@@ -51,10 +52,16 @@ export default function UserPage(props) {
 
   return(
     <div>
+     
     <h1 className="headerfont">Planned schedule</h1>
-    <div className="calendarborder">
+    <CharacterPage 
+    name={props.plan.name}
+    img={props.plan.img}
+    description={props.plan.description}
+    />
+    {/* <div className="calendarborder">
     <Calendar onPanelChange={onPanelChange} dateCellRender={(date)=>dayItem(date)} monthCellRender={(month)=>{monthItem(month)}}/>
-    </div>
+    </div> */}
     </div>
   )
 }

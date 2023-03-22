@@ -32,17 +32,6 @@ export default function Application(props) {
 
   ////*****************************************************
 
-  ////**************** COnditional page rendering *************************
-
-  // const [screen, setScreen] = useState("/login");
-
-  // const [pathName, setPathName] = useState(window.location.pathname);
-
-  // useEffect(() => {
-  //   setScreen(window.location.pathname);
-  // }, [window.location.pathname]);
-
-  //**************************************************
   const { state, addPlan, handleLogin, handleLogout, loginStatus } =
     useApplicationData();
   useEffect(() => {
@@ -62,7 +51,7 @@ export default function Application(props) {
             element={
               <div>
                 <h1>
-                  Welcomee to Level9000. Work out plans designed to make as
+                  Welcome to Over9000. Work out plans designed to make as
                   strong as your Hero Each plan consists of 6 excercises. You'll
                   do one excerxise as many times as possible each day plus on
                   rest day. Now choose your challenge:
@@ -82,7 +71,7 @@ export default function Application(props) {
                 <div>
                   <Counter onCountChange={handleCountChange} />
                   <ProgressBar bgcolor="#6a1b9a" completed={progress} />
-                  <UserPage />
+                  <UserPage plan={state.plans[0]} />
                 </div>
               ) : (
                 <Login />

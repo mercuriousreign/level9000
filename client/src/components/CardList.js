@@ -25,6 +25,7 @@ export default function CardList(props) {
   const plans = props.plans.map((plan, index) => (
     <li key={plan.id}>
       <CardListItem
+        id={plan.id}
         name={plan.name}
         img={plan.img}
         exercise={exercises[Number(index)].map((i) => props.exercises[i])}
