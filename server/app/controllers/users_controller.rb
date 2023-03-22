@@ -27,6 +27,31 @@ class UsersController < ApplicationController
     end
   end
 
+  def show_plans
+    @user = User.find(params[:id])
+    if @user
+      render json : {
+        plans: @user.plans
+      }
+  end
+
+  def update
+    @user = User.find(params[:id])
+    @user.plan_id = user_params[:plan_id]
+    @user.save
+    if @user.save
+      render json: {
+        status: :created,
+        user: @user
+      }
+    else
+      render json: {
+        status: 500,
+        errors: @user.errors.full_messages
+      }
+    end
+  end
+
   def create
     @user = User.new(user_params)
     if @user.save
@@ -46,6 +71,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :email , :password, :password_confirmation)
+    params.require(:user).permit(:username, :email , :password, :password_confirmation,:plan_id)
   end
+
 end

@@ -3,4 +3,5 @@ class User < ApplicationRecord
   validates :username, presence: true
   validates :username, uniqueness: true
   validates :username, length: { minimum: 4 }
+  belongs_to :plan
 end
