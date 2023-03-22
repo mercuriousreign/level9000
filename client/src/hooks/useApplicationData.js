@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 
 export default function useApplicationData() {
   const [state, setState] = useState({
+    isLoggedIn: false,
+    user: {},
     users: [],
     plans: [],
     exercises: [],
@@ -79,18 +81,45 @@ export default function useApplicationData() {
         for (let i = 2; i < all.length; i++) {
           exerciseList = exerciseList.concat(all[i].data);
         }
-
         setState((prev) => ({
           ...prev,
-
           users: all[0].data,
           plans: all[1].data,
           exercises: exerciseList,
         }));
       })
       .catch((err) => console.log(err));
+    // loginStatus();
   }, []);
 
+  const handleLogin = (data) => {
+    setState({
+      ...state,
+      isLoggedIn: true,
+      user: data.user,
+    });
+  };
+  const handleLogout = () => {
+    setState({
+      ...state,
+      isLoggedIn: false,
+      user: {},
+    });
+  };
+  // const loginStatus = () => {
+  //   axios
+  //     .get("http://localhost:3000/logged_in")
+  //     .then((response) => {
+  //       if (response.data.logged_in) {
+  //         handleLogin(response);
+  //       } else {
+  //         handleLogout();
+  //       }
+  //     })
+  //     .catch((error) => console.log("api errors:", error));
+  // };
+
+  return { state, handleLogin, handleLogout };
 }
 
 //   const addPlan = function(user,planItem) {

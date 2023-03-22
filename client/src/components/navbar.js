@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./navbar.css";
+import { Link } from "react-router-dom";
 
 export default function Navbar(props) {
   return (
@@ -7,16 +8,16 @@ export default function Navbar(props) {
       <div className="navbar-container">
         <ul>
           <li className="home">
-            <a href="/">Home</a>
+            <Link to="/">Home</Link>
           </li>
           <li>
-            <a href="/User">Your Account</a>
+            <Link to="/User">Your Account </Link>
           </li>
           <li>
-            <a href="/Login">Login</a>
+            <Link to="/login">Login</Link>
           </li>
           <li>
-            <a href="/Register">Register</a>
+            <Link to="/signup">Register</Link>
           </li>
         </ul>
       </div>

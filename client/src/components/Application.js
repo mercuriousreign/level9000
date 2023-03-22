@@ -9,63 +9,88 @@ import CompletedButton from "./CompletedButton";
 import UserPage from "./Views/UserPage";
 import Button from "./Button";
 
-
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Link } from "react-router-dom";
+import Login from "./Login";
+import SignUp from "./SignUp";
 
 export default function Application(props) {
-
-
-////**************** Progress tracker  *************************
-  const testData = [
-    { bgcolor: "#6a1b9a", completed: 60 },
-  ];
+  ////**************** Progress tracker  *************************
+  const testData = [{ bgcolor: "#6a1b9a", completed: 60 }];
 
   const [completed, setCompleted] = useState(0);
 
   useEffect(() => {
-    setInterval(() => setCompleted(Math.floor(Math.random() * 100) + 1), 2000);
+    // setInterval(() => setCompleted(Math.floor(Math.random() * 100) + 1), 2000);
   }, []);
 
   const [progress, setProgress] = useState(0);
 
   function handleCountChange(count) {
-    setProgress((count/6) * 100);
+    setProgress((count / 6) * 100);
   }
 
-////*****************************************************
+  ////*****************************************************
 
-////**************** COnditional page rendering *************************
+  ////**************** COnditional page rendering *************************
 
-  const [screen, setScreen] = useState('/login')
+  // const [screen, setScreen] = useState("/login");
 
-  const [pathName, setPathName] = useState(window.location.pathname)
+  // const [pathName, setPathName] = useState(window.location.pathname);
 
-  useEffect(()=> {
-    setScreen(window.location.pathname)
-  }, [window.location.pathname])
+  // useEffect(() => {
+  //   setScreen(window.location.pathname);
+  // }, [window.location.pathname]);
 
-//**************************************************
-  const { state, addPlan } = useApplicationData();
+  //**************************************************
+  const { state, addPlan, handleLogin, handleLogout, loginStatus } =
+    useApplicationData();
+  useEffect(() => {
+    console.log("isLoggedIn changed?", state.isLoggedIn);
+  }, [state.isLoggedIn]);
 
   console.log("testing exercises", state.plans);
+  console.log("isloggedIN", state.isLoggedIn);
   return (
     <div className="App">
-      <Navbar />
-      {screen == "/" && <h1>Welcomee to Level9000. Work out plans designed to make as strong as your Hero
-        Each plan consists of 6 excercises. You'll do one excerxise as many times as possible each day plus on rest day. 
-        Now choose your challenge:</h1>}
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route
+            exact
+            path="/"
+            element={
+              <div>
+                <h1>
+                  Welcomee to Level9000. Work out plans designed to make as
+                  strong as your Hero Each plan consists of 6 excercises. You'll
+                  do one excerxise as many times as possible each day plus on
+                  rest day. Now choose your challenge:
+                </h1>
+                <CardList plans={state.plans} exercises={state.exercises} />
+              </div>
+            }
+          />
 
-      {screen == "/" && <CompletedButton/>}
+          <Route exact path="/login" element={<Login login={handleLogin} />} />
 
-      {screen == "/" && <CardList plans={state.plans} exercises={state.exercises} />}
-
-
-
-
-      {screen == "/User" && <Counter onCountChange={handleCountChange} />}
-      {screen == "/User" && <ProgressBar bgcolor='#6a1b9a' completed={progress}/>}
-      {screen == "/User" && <UserPage/>}
-
-     
+          <Route path="/signup" element={<SignUp login={handleLogin} />} />
+          <Route
+            path="/user"
+            element={
+              state.isLoggedIn ? (
+                <div>
+                  <Counter onCountChange={handleCountChange} />
+                  <ProgressBar bgcolor="#6a1b9a" completed={progress} />
+                  <UserPage />
+                </div>
+              ) : (
+                <Login />
+              )
+            }
+          />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

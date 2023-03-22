@@ -36,8 +36,8 @@ export default function CardListItem(props) {
   const { name, img, exercise, onSelect, isSelected } = props;
   console.log("exercise props here", exercise);
 
-  const exerciseList = exercise.map((e) => (
-    <div key={e.id}>
+  const exerciseList = exercise.map((e, index) => (
+    <div key={index}>
       <h3>{e.name}</h3>
       <p>{e.instructions}</p>
     </div>
@@ -52,6 +52,3 @@ export default function CardListItem(props) {
     </div>
   );
 }
-
-
-
