@@ -91,22 +91,22 @@ export default function useApplicationData() {
       .catch((err) => console.log(err));
   }, []);
 
-
-
-  const addPlan = function(user,planItem) {
-    //axios do a post to user database add the exercise to that specific userdatabase, and then redirect to the homepage
-    //
-    return axios.put(`/users/${user}/`, { planItem }).then((prev) => {
-     setState(prev => ({
-      ...prev,
-      plans,
-      exercises
-     }))
-    })
-  }
-
-  return { state , addPlan };
 }
+
+//   const addPlan = function(user,planItem) {
+//     //axios do a post to user database add the exercise to that specific userdatabase, and then redirect to the homepage
+//     //
+//     return axios.put(`/users/${user}/`, { planItem }).then((prev) => {
+//      setState(prev => ({
+//       ...prev,
+//       plans,
+//       exercises
+//      }))
+//     })
+//   }
+
+//   return { state , addPlan };
+// }
 
 //list in order
 //cardio

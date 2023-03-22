@@ -29,7 +29,8 @@ export default function CardList(props) {
         img={plan.img}
         exercise={exercises[Number(index)].map((i) => props.exercises[i])}
         isSelected={selectedPlan}
-        onSelect={() => {setSelectedPlan(plan.id); props.addPlan(user,plan.id)}}
+        onSelect={() => {setSelectedPlan(plan.id)}}
+        // onSelect={() => {setSelectedPlan(plan.id); props.addPlan(user,plan.id)}}
 
       />
     </li>
