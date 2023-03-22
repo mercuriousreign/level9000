@@ -54,7 +54,7 @@ export default function Application(props) {
   return (
     <div className="App">
       <BrowserRouter>
-        <Navbar />
+        <Navbar logout={handleLogout} loggedOut={state.isLoggedIn} />
         <Routes>
           <Route
             exact
@@ -73,7 +73,7 @@ export default function Application(props) {
           />
 
           <Route exact path="/login" element={<Login login={handleLogin} />} />
-
+      
           <Route path="/signup" element={<SignUp login={handleLogin} />} />
           <Route
             path="/user"

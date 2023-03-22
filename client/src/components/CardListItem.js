@@ -34,7 +34,7 @@ import Button from "./Button";
 
 export default function CardListItem(props) {
   const { name, img, exercise, onSelect, isSelected } = props;
-  console.log("exercise props here", exercise);
+  // console.log("exercise props here", exercise);
 
   const exerciseList = exercise.map((e, index) => (
     <div key={index}>

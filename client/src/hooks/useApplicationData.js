@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 
+
 export default function useApplicationData() {
   const [state, setState] = useState({
     isLoggedIn: false,
@@ -105,6 +106,8 @@ export default function useApplicationData() {
       isLoggedIn: false,
       user: {},
     });
+    
+
   };
   // const loginStatus = () => {
   //   axios
