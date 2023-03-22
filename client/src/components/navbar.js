@@ -13,10 +13,10 @@ export default function Navbar(props) {
             <a href="/User">Your Account</a>
           </li>
           <li>
-            <a href="/Login">Login</a>
+            <a href="/login">Login</a>
           </li>
           <li>
-            <a href="/Register">Register</a>
+            <a href="/signup">Register</a>
           </li>
         </ul>
       </div>

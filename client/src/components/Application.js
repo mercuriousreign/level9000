@@ -2,9 +2,14 @@ import "./Application.css";
 import Navbar from "./navbar";
 import useApplicationData from "../hooks/useApplicationData";
 import CardList from "./CardList";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Link } from "react-router-dom";
+import Login from "./Login";
+import SignUp from "./SignUp";
 
 export default function Application(props) {
-  const { state } = useApplicationData();
+  const { state, handleLogin, handleLogout, loginStatus } =
+    useApplicationData();
 
   // useEffect(() => {
   //
@@ -13,9 +18,22 @@ export default function Application(props) {
   console.log("testing exercises", state.plans);
   return (
     <div className="App">
-      <Navbar />
-      <h1>Choose your mission</h1>
-      <CardList plans={state.plans} exercises={state.exercises} />
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route
+            exact
+            path="/"
+            element={
+              <CardList plans={state.plans} exercises={state.exercises} />
+            }
+          />
+
+          <Route exact path="/login" element={<Login login={handleLogin} />} />
+
+          <Route path="/signup" element={<SignUp login={handleLogin} />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
