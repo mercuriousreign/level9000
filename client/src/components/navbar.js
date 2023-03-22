@@ -13,7 +13,7 @@ export default function Navbar(props) {
       <div className="navbar-container">
         <ul>
           <li className="home">
-            <Link to="/">Home</Link>
+            <Link to="/">Over9000</Link>
           </li>
           <li>
             {props.loggedOut && <Link to="/User">Your Account </Link>}
