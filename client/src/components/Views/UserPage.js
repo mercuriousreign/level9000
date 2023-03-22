@@ -41,15 +41,20 @@ export default function UserPage(props) {
 
   }
 
+  function monthItem(month){
+    return (
+      <DayListItem img="Naruto_newshot.webp"></DayListItem>
+    )
+
+  }
+
 
   return(
     <div>
-    <Navbar/>
     <h1 className="headerfont">Planned schedule</h1>
     <div className="calendarborder">
-    <Calendar onPanelChange={onPanelChange} dateCellRender={(date)=>dayItem(date)}/>
+    <Calendar onPanelChange={onPanelChange} dateCellRender={(date)=>dayItem(date)} monthCellRender={(month)=>{monthItem(month)}}/>
     </div>
-    <ProgressBar bgcolor={"#6a1b9a"} completed={68}></ProgressBar>
     </div>
   )
 }

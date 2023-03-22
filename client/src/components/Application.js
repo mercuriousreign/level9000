@@ -3,10 +3,13 @@ import "./Application.css";
 import Navbar from "./navbar";
 import useApplicationData from "../hooks/useApplicationData";
 import CardList from "./CardList";
-import Login from "./Login";
 import ProgressBar from "./ProgressBar";
 import Counter from "./Counter";
 import CompletedButton from "./CompletedButton";
+import UserPage from "./Views/UserPage";
+import Button from "./Button";
+
+
 
 export default function Application(props) {
 
@@ -41,13 +44,13 @@ export default function Application(props) {
   }, [window.location.pathname])
 
 //**************************************************
-  const { state } = useApplicationData();
+  const { state, addPlan } = useApplicationData();
 
   console.log("testing exercises", state.plans);
   return (
     <div className="App">
       <Navbar />
-      {screen == "/" && <h1>Welcom to Level9000. Work out plans designed to make as strong as your Hero
+      {screen == "/" && <h1>Welcomee to Level9000. Work out plans designed to make as strong as your Hero
         Each plan consists of 6 excercises. You'll do one excerxise as many times as possible each day plus on rest day. 
         Now choose your challenge:</h1>}
 
@@ -55,11 +58,13 @@ export default function Application(props) {
 
       {screen == "/" && <CardList plans={state.plans} exercises={state.exercises} />}
 
-      {screen == "/Login" && <Login/> }
+
 
 
       {screen == "/User" && <Counter onCountChange={handleCountChange} />}
       {screen == "/User" && <ProgressBar bgcolor='#6a1b9a' completed={progress}/>}
+      {screen == "/User" && <UserPage/>}
+
      
     </div>
   );
