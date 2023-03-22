@@ -27,13 +27,14 @@ class UsersController < ApplicationController
     end
   end
 
-  def show_plans
-    @user = User.find(params[:id])
-    if @user
-      render json : {
-        plans: @user.plans
-      }
-  end
+  # def show_plans
+  #   @user = User.find(params[:id])
+  #   if @user
+  #     render json : {
+  #       plans: @user.plans
+  #     }
+  #   end
+  # end
 
   def update
     @user = User.find(params[:id])
