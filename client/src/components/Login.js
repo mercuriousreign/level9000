@@ -84,7 +84,7 @@ export default function Login(props) {
           Log In
         </button>
         <div>
-          or <Link to="/signup">sign up</Link>
+          <Link to="/signup">sign up</Link>
         </div>
       </form>
     </div>
