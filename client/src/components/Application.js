@@ -16,19 +16,33 @@ import SignUp from "./SignUp";
 
 export default function Application(props) {
   ////**************** Progress tracker  *************************
-  const testData = [{ bgcolor: "#6a1b9a", completed: 60 }];
+  const testData = [
+    { day: "Monday", bgcolor: "#6a1b9a", completed: 60 },
+    { day: "Tuesday", bgcolor: "#6a1b9a", completed: 60 },
+    { day: "Wednesday", bgcolor: "#6a1b9a", completed: 60 },
+    { day: "Thursday", bgcolor: "#6a1b9a", completed: 60 },
+    { day: "Friday", bgcolor: "#6a1b9a", completed: 60 },
+    { day: "Saturday", bgcolor: "#6a1b9a", completed: 60 },
+  ];
 
   const [completed, setCompleted] = useState(0);
 
   useEffect(() => {
-    // setInterval(() => setCompleted(Math.floor(Math.random() * 100) + 1), 2000);
   }, []);
 
-  const [progress, setProgress] = useState(0);
 
-  function handleCountChange(count) {
-    setProgress((count / 6) * 100);
+  const [progresses, setProgresses] = useState(
+    testData.map((item) => 0)
+  );
+ 
+
+
+  function handleCountChange(count, idx) {
+    let newProgresses = [...progresses];
+    newProgresses[idx] = (count / 6) * 100;
+    setProgresses(newProgresses);
   }
+ 
 
   ////*****************************************************
 
@@ -94,9 +108,14 @@ export default function Application(props) {
             element={
               state.isLoggedIn ? (
                 <div>
-                  <Counter onCountChange={handleCountChange} />
-                  <ProgressBar bgcolor="#6a1b9a" completed={progress} />
                   <UserPage plan={state.plans[user.plan_id - 1]} />
+                  {testData.map((item, idx) => (
+                    <div key={idx}>
+                      <h2>{item.day}</h2>
+                      <Counter onCountChange={(count) => handleCountChange(count, idx)} />
+                      <ProgressBar bgcolor="#6a1b9a" completed={progresses[idx]} />
+                    </div>
+                  ))}
                 </div>
               ) : (
                 <Login />

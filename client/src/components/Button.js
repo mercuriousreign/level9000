@@ -57,7 +57,7 @@ export default function Button(props) {
       >
         {selected ? "Plan Selected" : "Select Plan"}
       </button>
-      {selected && <CompletedButton onReset={onReset} />}
+      {/* {selected && <CompletedButton onReset={onReset} />} */}
     </div>
   );
 }
