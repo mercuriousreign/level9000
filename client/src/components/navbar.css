@@ -1,6 +1,6 @@
 .navbar {
-  background-color: orangered;
-  color: #fff;
+  background-color: rgb(172, 230, 230);
+  color: #b4db47;
   /* display: flex; */
   justify-content: space-between;
   align-items: center;
