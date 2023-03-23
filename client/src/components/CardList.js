@@ -1,11 +1,9 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import "./Application.css";
 import CardListItem from "./CardListItem";
 
-
 export default function CardList(props) {
   console.log("Props plans inside cardlist", props.plans);
-
 
   const [selectedPlan, setSelectedPlan] = useState(null);
 
@@ -25,17 +23,18 @@ export default function CardList(props) {
   const plans = props.plans.map((plan, index) => (
     <li key={plan.id}>
       <CardListItem
+        key={plan.id}
         name={plan.name}
         img={plan.img}
         exercise={exercises[Number(index)].map((i) => props.exercises[i])}
         isSelected={selectedPlan}
-        onSelect={() => {setSelectedPlan(plan.id)}}
+        onSelect={() => {
+          setSelectedPlan(plan.id);
+        }}
         // onSelect={() => {setSelectedPlan(plan.id); props.addPlan(user,plan.id)}}
-
       />
     </li>
   ));
 
   return <ul className="cards">{plans}</ul>;
 }
-
