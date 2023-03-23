@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-
 export default function useApplicationData() {
   const [state, setState] = useState({
     isLoggedIn: false,
@@ -90,6 +89,7 @@ export default function useApplicationData() {
         }));
       })
       .catch((err) => console.log(err));
+    setUser({});
     // loginStatus();
   }, []);
 
@@ -99,6 +99,8 @@ export default function useApplicationData() {
       isLoggedIn: true,
       user: data.user,
     });
+    setUser({ ...user, id: data.user.id, plan_id: data.user.plan_id });
+    console.log("this is the handleLogin", data.user);
   };
   const handleLogout = () => {
     setState({
@@ -106,8 +108,7 @@ export default function useApplicationData() {
       isLoggedIn: false,
       user: {},
     });
-    
-
+    setUser({});
   };
   // const loginStatus = () => {
   //   axios
@@ -122,11 +123,11 @@ export default function useApplicationData() {
   //     .catch((error) => console.log("api errors:", error));
   // };
   const [user, setUser] = useState({
-      id:"",
+    id: "",
     email: "",
     username: "",
-      password: "",
-    plan_id:null, 
+    password: "",
+    plan_id: null,
   });
 
   return { user, setUser, state, handleLogin, handleLogout };
