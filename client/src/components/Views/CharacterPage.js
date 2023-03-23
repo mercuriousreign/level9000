@@ -18,7 +18,7 @@ export default function CharacterPage(props){
 
   return (
     //<CardListItem name={name} img={img}/>
-    <div><Navbar/>
+    <div>
     <Card hoverable
     style={{
       width: 400,
@@ -31,20 +31,18 @@ export default function CharacterPage(props){
       <p>Muscle target : {props.muscle}</p>
       <p>{props.description}</p>
       <ul>
-      <Button>Add to regiment</Button>
-      <Button>Start this exercise</Button>
       </ul>
       </Card>
-    <div>
+    {/* <div>
     
       <h1>{props.name}</h1>
       <img src={props.img}></img>
       <p>Muscle target :{props.muscle}</p>
       <p>{props.description}</p>
-    </div>
-    <div>
+    </div> */}
+    {/* <div>
     <ButtonCalendar default={true} onClick={addPlan}>Add to my Calendar</ButtonCalendar>
-    </div>
+    </div> */}
     </div>
   )
 

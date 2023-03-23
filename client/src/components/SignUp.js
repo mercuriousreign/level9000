@@ -8,17 +8,12 @@ export default function SignUp(props) {
   const redirect = () => {
     navigate("/");
   };
-  const [state, setState] = useState({
-    username: "",
-    email: "",
-    password: "",
-    password_confirmation: "",
-  });
+  
   const [err, setErr] = useState();
   const handleSubmit = (event) => {
     console.log("testin");
     event.preventDefault();
-    const { username, email, password, password_confirmation } = state;
+    const { username, email, password, password_confirmation } = props.user;
     let user = {
       username: username,
       email: email,
@@ -54,7 +49,7 @@ export default function SignUp(props) {
   };
 
   const handleChange = (event) => {
-    setState({ ...state, [event.target.name]: event.target.value });
+    props.setUser({ ...props.user, [event.target.name]: event.target.value });
   };
   if (err) {
     return handleErrors();
@@ -67,28 +62,28 @@ export default function SignUp(props) {
           placeholder="username"
           type="text"
           name="username"
-          value={state.username}
+          value={props.user.username}
           onChange={handleChange}
         />
         <input
           placeholder="email"
           type="text"
           name="email"
-          value={state.email}
+          value={props.user.email}
           onChange={handleChange}
         />
         <input
           placeholder="password"
           type="password"
           name="password"
-          value={state.password}
+          value={props.user.password}
           onChange={handleChange}
         />
         <input
           placeholder="password confirmation"
           type="password"
           name="password_confirmation"
-          value={state.password_confirmation}
+          value={props.user.password_confirmation}
           onChange={handleChange}
         />
 

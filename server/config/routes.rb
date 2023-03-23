@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   post '/login',    to: 'sessions#create'
   post '/logout',   to: 'sessions#destroy'
   get '/logged_in', to: 'sessions#is_logged_in?'
-  resources :users, only: %i[create show index] do
+  get '/users/plans/:id', to: 'users#show_plans'
+  resources :users, only: %i[create show index update] do
     resources :items, only: %i[create show index destroy]
   end
-  resources :plans, only: [:index]
+  resources :plans, only: [:index,:show]
 end
