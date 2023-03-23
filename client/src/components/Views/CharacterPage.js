@@ -21,7 +21,7 @@ export default function CharacterPage(props){
     <div>
     <Card hoverable
     style={{
-      width: 400,
+      width: 700,
     }}
     
     cover={<img src={props.img}></img>}
