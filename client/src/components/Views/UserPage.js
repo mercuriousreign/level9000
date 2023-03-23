@@ -49,16 +49,17 @@ export default function UserPage(props) {
 
   }
 
-
+console.log("current user plan", props.plan)
   return(
     <div>
      
-    <h1 className="headerfont">Planned schedule</h1>
-    <CharacterPage 
+      <h1 className="headerfont">Planned schedule</h1>
+      {props.plan && <CharacterPage 
     name={props.plan.name}
     img={props.plan.img}
     description={props.plan.description}
-    />
+    />}
+    {!props.plan && <h1>GO CHOOSE A PLAN!!!!</h1>}
     {/* <div className="calendarborder">
     <Calendar onPanelChange={onPanelChange} dateCellRender={(date)=>dayItem(date)} monthCellRender={(month)=>{monthItem(month)}}/>
     </div> */}

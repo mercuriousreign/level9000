@@ -32,14 +32,16 @@ export default function Application(props) {
 
   ////*****************************************************
 
-  const { state, addPlan, handleLogin, handleLogout, loginStatus } =
+  const { user, setUser, state, addPlan, handleLogin, handleLogout, loginStatus } =
     useApplicationData();
   useEffect(() => {
     console.log("isLoggedIn changed?", state.isLoggedIn);
+    console.log("current_user", user);
   }, [state.isLoggedIn]);
 
   console.log("testing exercises", state.plans);
   console.log("isloggedIN", state.isLoggedIn);
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -56,14 +58,14 @@ export default function Application(props) {
                   do one excerxise as many times as possible each day plus on
                   rest day. Now choose your challenge:
                 </h1>
-                <CardList plans={state.plans} exercises={state.exercises} />
+                <CardList plans={state.plans} exercises={state.exercises} user={user} setUser={setUser} />
               </div>
             }
           />
 
-          <Route exact path="/login" element={<Login login={handleLogin} />} />
+          <Route exact path="/login" element={<Login user={user} setUser={setUser} login={handleLogin} />} />
       
-          <Route path="/signup" element={<SignUp login={handleLogin} />} />
+          <Route path="/signup" element={<SignUp user={user} setUser={setUser} login={handleLogin} />} />
           <Route
             path="/user"
             element={
@@ -71,7 +73,7 @@ export default function Application(props) {
                 <div>
                   <Counter onCountChange={handleCountChange} />
                   <ProgressBar bgcolor="#6a1b9a" completed={progress} />
-                  <UserPage plan={state.plans[0]} />
+                  <UserPage plan={state.plans[user.plan_id]} />
                 </div>
               ) : (
                 <Login />

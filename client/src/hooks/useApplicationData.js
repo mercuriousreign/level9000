@@ -121,8 +121,15 @@ export default function useApplicationData() {
   //     })
   //     .catch((error) => console.log("api errors:", error));
   // };
+  const [user, setUser] = useState({
+      id:"",
+    email: "",
+    username: "",
+      password: "",
+    plan_id:null, 
+  });
 
-  return { state, handleLogin, handleLogout };
+  return { user, setUser, state, handleLogin, handleLogout };
 }
 
 //   const addPlan = function(user,planItem) {
