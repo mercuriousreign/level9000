@@ -1,23 +1,33 @@
 import React, { useState } from "react";
 import "./navbar.css";
-import { Link } from "react-router-dom";
+import { Link , redirect,} from "react-router-dom";
 
 export default function Navbar(props) {
+
+  function gohome(){
+    return redirect("/")
+  }
+  
   return (
     <nav className="navbar">
       <div className="navbar-container">
         <ul>
           <li className="home">
-            <Link to="/">Home</Link>
+            <Link to="/">Over9000</Link>
           </li>
           <li>
-            <Link to="/User">Your Account </Link>
+            {props.loggedOut && <Link to="/User">Your Account </Link>}
           </li>
           <li>
-            <Link to="/login">Login</Link>
+            {!props.loggedOut && <Link to="/login">Login</Link>}
+            
           </li>
           <li>
-            <Link to="/signup">Register</Link>
+            {!props.loggedOut && <Link to="/signup">Register</Link>}
+            
+          </li>
+          <li>
+            {props.loggedOut && <Link to="/" onClick={props.logout}>Logout</Link>}
           </li>
         </ul>
       </div>

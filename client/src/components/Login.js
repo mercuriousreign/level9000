@@ -8,16 +8,12 @@ export default function Login(props) {
   const redirect = () => {
     navigate("/");
   };
-  const [state, setState] = useState({
-    email: "",
-    username: "",
-    password: "",
-  });
+
   const [err, setErr] = useState();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const { username, email, password } = state;
+    const { username, email, password } = props.user;
     let user = {
       username: username,
       email: email,
@@ -50,7 +46,7 @@ export default function Login(props) {
   };
 
   const handleChange = (event) => {
-    setState({ ...state, [event.target.name]: event.target.value });
+    props.setUser({ ...props.user, [event.target.name]: event.target.value });
   };
   if (err) {
     return handleErrors();
@@ -63,28 +59,28 @@ export default function Login(props) {
           placeholder="username"
           type="text"
           name="username"
-          value={state.username}
+          value={props.user.username}
           onChange={handleChange}
         />
         <input
           placeholder="email"
           type="text"
           name="email"
-          value={state.email}
+          value={props.user.email}
           onChange={handleChange}
         />
         <input
           placeholder="password"
           type="password"
           name="password"
-          value={state.password}
+          value={props.user.password}
           onChange={handleChange}
         />
         <button placeholder="submit" type="submit">
           Log In
         </button>
         <div>
-          or <Link to="/signup">sign up</Link>
+          <Link to="/signup">sign up</Link>
         </div>
       </form>
     </div>

@@ -33,8 +33,8 @@ import "./CardListItem.css";
 import Button from "./Button";
 
 export default function CardListItem(props) {
-  const { name, img, exercise, onSelect, isSelected } = props;
-  console.log("exercise props here", exercise);
+  const { user, setUser, id, name, img, exercise, onSelect, isSelected } = props;
+  // console.log("exercise props here", exercise);
 
   const exerciseList = exercise.map((e, index) => (
     <div key={index}>
@@ -48,7 +48,7 @@ export default function CardListItem(props) {
       <h2 className="">{name}</h2>
       <img className="" src={img} />
       {exerciseList}
-      <Button plan={name} selected={isSelected} onSelect={onSelect} />
+      <Button user={user} setUser={setUser} id={id} plan={name} selected={isSelected} onSelect={onSelect} />
     </div>
   );
 }
