@@ -23,9 +23,7 @@ export default function Counter(props) {
 
   return (
     <div>
-      <h2>Track your progress, press the 💪*👍*💪 button every day you follow your plan: {count} </h2>
-      <button onClick={handleIncrement}>💪*👍*💪</button>
-    <button onClick={handleDecrement}>🙄*👎*🙄</button>
+      <button onClick={handleIncrement}>➕1</button>
     </div>
   );
 }
