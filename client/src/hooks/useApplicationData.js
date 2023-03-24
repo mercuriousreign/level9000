@@ -86,10 +86,10 @@ export default function useApplicationData() {
           users: all[0].data,
           plans: all[1].data,
           exercises: exerciseList,
+          //isLoggedIn : true ////////////fakeuser idloggedin
         }));
       })
       .catch((err) => console.log(err));
-    setUser({});
     // loginStatus();
   }, []);
 

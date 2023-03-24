@@ -13,4 +13,23 @@ class PlansController < ApplicationController
     end
   end
 
+
+  def add_date
+    @user = User.find(params[:userid])
+    puts @user.plan_date
+    puts "______parasmm", params[:plan_date]
+    @user.plan_date.push(params[:plan_date])
+    @user.save
+    if @user.save
+      render json: {
+        user: @user
+      }
+    else
+      render json: {
+        status: 500,
+        errors: @user.errors.full_messages
+      }
+    end
+  end
+
 end
