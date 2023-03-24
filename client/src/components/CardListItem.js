@@ -49,10 +49,10 @@ export default function CardListItem(props) {
   return (
     <div>
       <h2 className="">{name}</h2>
-      <Collapse>
-      <CollapsePanel header="Exercises">
-      {exerciseList}
+      <Collapse bordered={false}>
+      <CollapsePanel header="Exercises" bordered={false}>
       <Button user={user} setUser={setUser} id={id} plan={name} selected={isSelected} onSelect={onSelect} />
+      {exerciseList}
       </CollapsePanel>
       </Collapse>
       

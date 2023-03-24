@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Navbar from "../navbar";
-import { Calendar } from "antd";
+import { Calendar , Button } from "antd";
 import ButtonCalendar from "../Calendar/ButtonCalendar";
 import DayListItem from "../Calendar/DayListItem";
 import ProgressBar from "../Calendar/Progressbar";
@@ -24,18 +24,18 @@ export default function UserPage(props) {
 
   function dayItem(date) {
     //
-    if (date.format("YYYY-MM-DD") === "2023-03-21") {
-      return (
-        <div>
-          <DayListItem img="Naruto_newshot.webp"></DayListItem>
-          <ButtonCalendar
-            children=" X "
-            danger={true}
-            onClick={deleteItem}
-          ></ButtonCalendar>
-        </div>
-      );
-    }
+    // if (date.format("YYYY-MM-DD") === "2023-03-21") {
+    //   return (
+    //     <div>
+    //       <DayListItem img="Naruto_newshot.webp"></DayListItem>
+    //       <ButtonCalendar
+    //         children=" X "
+    //         danger={true}
+    //         onClick={deleteItem}
+    //       ></ButtonCalendar>
+    //     </div>
+    //   );
+    // }
 
     return <ButtonCalendar children=" ➕ " onClick={addItem}></ButtonCalendar>;
   }
@@ -56,9 +56,9 @@ export default function UserPage(props) {
         />
       )}
       {!props.plan && <h1>GO CHOOSE A PLAN!!!!</h1>}
-      {/* <div className="calendarborder">
+      <div className="calendarborder">
     <Calendar onPanelChange={onPanelChange} dateCellRender={(date)=>dayItem(date)} monthCellRender={(month)=>{monthItem(month)}}/>
-    </div> */}
+    </div>
     </div>
   );
 }
