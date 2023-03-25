@@ -20,52 +20,34 @@ export default function UserPage(props) {
         .get(`http://localhost:3000/plans/date/${currentUser}`)
         .then((response) => {
           const newDates = {};
-          console.log(response.data.plan_date);
           response.data.plan_date.forEach((date) => {
             newDates[date] = true;
           });
-          console.log("after the ",newDates)
+          console.log("after the foreach new dates is",newDates)
           setDates(newDates);
         })
         .catch((err) => {
           console.log(err);
         });
     }
-  }, []);
+  }, [dates]);
 
   const onChange = (date,e) => {
-    let dates = {};
     const df = date.format("YYYY-MM-DD");
- 
     let currentUser = "";
     if (localStorage.getItem("user_id")){
       currentUser = localStorage.getItem("user_id");
 
     }
-    
-    const sendData = {
-      user:{
-       plan_date: df
-      },
-    };
-    
-
-    const sendData2 = { "userid": currentUser, "plan_date" : df} ; 
-    console.log("the sendData in user page is ",sendData2)
-    // console.log(`checked = ${e.target.checked}`);
-    // console.log("everything in e",e.target)
-    // console.log("date is here",date);
-    
-    axios.post(`http://localhost:3000/plans/date/${currentUser}`, sendData2)
-    .then((response)=>{console.log("thereponse issss",response.data, sendData2)})
+    const sendData = { "userid": currentUser, "plan_date" : df} ; 
+    axios.post(`http://localhost:3000/plans/date/${currentUser}`, sendData)
+    .then((response)=>{console.log("thereponse issss",response.data, sendData)})
     .catch((err)=>{console.log("response in the onChange catch",err)})
   };
 
 
   function dayItem(date) {
     const df = date.format("YYYY-MM-DD");
-    const propDates = props.user.plan_date
-    console.log("stuffs inside dayItem",props.user.plan_date);
     const status = dates[df] || false;
 
     return <Checkbox checked={status} onChange={(e)=>onChange(date,e)}/>;
