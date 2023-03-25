@@ -106,7 +106,7 @@ export default function Application(props) {
                   />
                 </div>
               ) : (
-                <Login />
+                <div>Loading</div>
               )
             }
           />
