@@ -3,6 +3,7 @@ import { Calendar, Button, Checkbox } from "antd";
 import "../Calendar/DayListItem.css";
 import CharacterPage from "./CharacterPage";
 import axios from "axios";
+import "./UserPage.css"
 
 export default function UserPage(props) {
   const exercises = (planID) => {
@@ -136,8 +137,7 @@ export default function UserPage(props) {
   }
 
   return (
-    <div>
-      <h1 className="headerfont">Planned schedule</h1>
+    <div class="container">
       {props.plan && (
         <CharacterPage
           name={props.plan.name}

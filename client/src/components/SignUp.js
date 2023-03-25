@@ -56,42 +56,42 @@ export default function SignUp(props) {
     return handleErrors();
   }
   return (
-    <div>
-      <h1>Sign Up</h1>
-      <form onSubmit={handleSubmit}>
-        <input
-          placeholder="username"
-          type="text"
-          name="username"
-          value={username}
-          onChange={(event) => setUsername(event.target.value)}
-        />
-        <input
-          placeholder="email"
-          type="text"
-          name="email"
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
-        />
-        <input
-          placeholder="password"
-          type="password"
-          name="password"
-          value={password}
-          onChange={(event) => setPassword(event.target.value)}
-        />
-        <input
-          placeholder="password confirmation"
-          type="password"
-          name="password_confirmation"
-          value={props.user.password_confirmation}
-          onChange={(event) => setPasswordconfirmation(event.target.value)}
-        />
-
-        <button placeholder="submit" type="submit">
-          Sign Up
-        </button>
-      </form>
-    </div>
+    <div class="login-form">
+    <h1>Sign Up</h1>
+    <form onSubmit={handleSubmit}>
+      <input
+        placeholder="username"
+        type="text"
+        name="username"
+        value={username}
+        onChange={(event) => setUsername(event.target.value)}
+      />
+      <input
+        placeholder="email"
+        type="text"
+        name="email"
+        value={email}
+        onChange={(event) => setEmail(event.target.value)}
+      />
+      <input
+        placeholder="password"
+        type="password"
+        name="password"
+        value={password}
+        onChange={(event) => setPassword(event.target.value)}
+      />
+      <input
+        placeholder="password confirmation"
+        type="password"
+        name="password_confirmation"
+        value={props.user.password_confirmation}
+        onChange={(event) => setPasswordconfirmation(event.target.value)}
+      />
+  
+      <button placeholder="submit" type="submit">
+        Sign Up
+      </button>
+    </form>
+  </div>
   );
 }

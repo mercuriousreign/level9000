@@ -1,0 +1,47 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+  margin: 20px;
+}
+
+.calendarborder {
+  border: 2px solid #ccc;
+  padding: 20px;
+}
+
+.character-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.character-page img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.character-page h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.character-page p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.character-page ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.character-page li {
+  margin-bottom: 5px;
+  font-size: 14px;
+  line-height: 1.5;
+}

@@ -2,6 +2,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./Login.css"
 
 export default function Login(props) {
   let navigate = useNavigate();
@@ -55,9 +56,10 @@ export default function Login(props) {
     return handleErrors();
   }
   return (
-    <div>
-      <h1>Log In</h1>
-      <form onSubmit={handleSubmit}>
+    <div class="login-form">
+    <h1>Log In</h1>
+    <form onSubmit={handleSubmit}>
+      <div class="input-field">
         <input
           placeholder="username"
           type="text"
@@ -65,6 +67,8 @@ export default function Login(props) {
           value={username}
           onChange={(event) => setUsername(event.target.value)}
         />
+      </div>
+      <div class="input-field">
         <input
           placeholder="email"
           type="text"
@@ -72,6 +76,8 @@ export default function Login(props) {
           value={email}
           onChange={(event) => setEmail(event.target.value)}
         />
+      </div>
+      <div class="input-field">
         <input
           placeholder="password"
           type="password"
@@ -79,13 +85,14 @@ export default function Login(props) {
           value={password}
           onChange={(event) => setPassword(event.target.value)}
         />
-        <button placeholder="submit" type="submit">
-          Log In
+      </div>
+      <div class="action">
+        <button type="submit">Log In</button>
+        <button>
+
         </button>
-        <div>
-          <Link to="/signup">sign up</Link>
-        </div>
-      </form>
-    </div>
+      </div>
+    </form>
+  </div>
   );
 }
