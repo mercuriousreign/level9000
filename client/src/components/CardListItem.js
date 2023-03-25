@@ -41,10 +41,7 @@ export default function CardListItem(props) {
   // console.log("exercise props here", exercise);
 
   const exerciseList = exercise.map((e, index) => (
-    <div key={index}>
-      <h3>{e.name}</h3>
-      <p>{e.instructions}</p>
-    </div>
+    <li key={index}>{e.name}</li>
   ));
 
   return (
@@ -60,7 +57,9 @@ export default function CardListItem(props) {
             selected={isSelected}
             onSelect={onSelect}
           />
-          {exerciseList}
+          <div className="list">
+            <ol>{exerciseList}</ol>
+          </div>
         </CollapsePanel>
       </Collapse>
     </div>
