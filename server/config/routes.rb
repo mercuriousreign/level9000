@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   post '/users/plans/:id', to: 'users#id'
   post '/useru', to: 'sessions#update'
   post '/plans/date/:userid', to: "plans#add_date"
+  get '/plans/date/:userid', to: "plans#show_date"
 
   resources :users, only: %i[create show index update] do
     resources :items, only: %i[create show index destroy]

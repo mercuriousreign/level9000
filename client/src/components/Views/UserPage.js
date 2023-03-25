@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../navbar";
 import { Calendar , Button , Checkbox} from "antd";
 import ButtonCalendar from "../Calendar/ButtonCalendar";
@@ -10,65 +10,64 @@ import axios from "axios";
 import useApplicationData from "../../hooks/useApplicationData";
 
 export default function UserPage(props) {
+  const [dates, setDates] = useState({});
 
-
-  //const [boxCheck,setChecks] = useState(false);
-  const onPanelChange = (value, mode) => {
-    console.log(value.format("YYYY-MM-DD"), mode);
-  };
-
-  const fakeDB = {};
-
-  function deleteItem() {
-    console.log("delete");
-  }
-
-  function addItem() {
-    console.log("add");
-  }
+  useEffect(() => {
+    let currentUser = "";
+    if (localStorage.getItem("user_id")) {
+      currentUser = localStorage.getItem("user_id");
+      axios
+        .get(`http://localhost:3000/plans/date/${currentUser}`)
+        .then((response) => {
+          const newDates = {};
+          console.log(response.data.plan_date);
+          response.data.plan_date.forEach((date) => {
+            newDates[date] = true;
+          });
+          console.log("after the ",newDates)
+          setDates(newDates);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, []);
 
   const onChange = (date,e) => {
+    let dates = {};
     const df = date.format("YYYY-MM-DD");
-    console.log("the df in user page is ",df)
+ 
+    let currentUser = "";
+    if (localStorage.getItem("user_id")){
+      currentUser = localStorage.getItem("user_id");
+
+    }
     
     const sendData = {
       user:{
        plan_date: df
       },
     };
-    console.log("the sendData in user page is ",sendData)
-
-
-    const sendData2 = {
-      "user" : {
-      "plan_date" : "2023-03-24"
-      }
-    } 
     
-    console.log(`checked = ${e.target.checked}`);
-    console.log("everything in e",e.target)
-    console.log("date is here",date);
-    //localStorage.setItem(date.format("YYYY-MM-DD"),e.target.checked);
 
-    axios.post(`http://localhost:3000/useru`, sendData2)
-    .then((response) => {console.log("response in the onChange",response)}).catch((err)=>{console.log("response in the onChange catch",err)})
+    const sendData2 = { "userid": currentUser, "plan_date" : df} ; 
+    console.log("the sendData in user page is ",sendData2)
+    // console.log(`checked = ${e.target.checked}`);
+    // console.log("everything in e",e.target)
+    // console.log("date is here",date);
+    
+    axios.post(`http://localhost:3000/plans/date/${currentUser}`, sendData2)
+    .then((response)=>{console.log("thereponse issss",response.data, sendData2)})
+    .catch((err)=>{console.log("response in the onChange catch",err)})
   };
 
-  // function saveDate(date) {
-  //   localStorage.setItem(date,)
-  // }
-
- 
-  
 
   function dayItem(date) {
-    let status = false;
-    // if(localStorage.getItem(date.format("YYYY-MM-DD"))){
-    //   status = true;
-    // }
-    // if (user.plan_date.includes(date.format("YYYY-MM-DD"))){
-    //   status = true;
-    // }
+    const df = date.format("YYYY-MM-DD");
+    const propDates = props.user.plan_date
+    console.log("stuffs inside dayItem",props.user.plan_date);
+    const status = dates[df] || false;
+
     return <Checkbox checked={status} onChange={(e)=>onChange(date,e)}/>;
   }
 
@@ -77,6 +76,7 @@ export default function UserPage(props) {
   }
 
   console.log("current user plan", props.plan);
+ 
   return (
     <div>
       <h1 className="headerfont">Planned schedule</h1>
@@ -89,7 +89,7 @@ export default function UserPage(props) {
       )}
       {!props.plan && <h1>GO CHOOSE A PLAN!!!!</h1>}
       <div className="calendarborder">
-    <Calendar onPanelChange={onPanelChange} dateCellRender={(date)=>dayItem(date)} monthCellRender={(month)=>{monthItem(month)}}/>
+    <Calendar dateCellRender={(date)=>dayItem(date)} monthCellRender={(month)=>{monthItem(month)}}/>
     </div>
     </div>
   );

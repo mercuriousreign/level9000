@@ -108,7 +108,7 @@ export default function Application(props) {
             element={
               state.isLoggedIn ? (
                 <div>
-                  <UserPage plan={state.plans[user.plan_id - 1]} />
+                  <UserPage user={user} plan={state.plans[user.plan_id - 1]} />
                   {testData.map((item, idx) => (
                     <div key={idx}>
                       <h2>{item.day}</h2>

@@ -99,8 +99,9 @@ export default function useApplicationData() {
       isLoggedIn: true,
       user: data.user,
     });
-    setUser({ ...user, id: data.user.id, plan_id: data.user.plan_id });
+    setUser({ ...user, id: data.user.id, plan_id: data.user.plan_id , plan_date: data.user.plan_date });
     console.log("this is the handleLogin", data.user);
+    localStorage.setItem("user_id",data.user.id)
   };
   const handleLogout = () => {
     setState({
@@ -128,6 +129,7 @@ export default function useApplicationData() {
     username: "",
     password: "",
     plan_id: null,
+    plan_date: ""
   });
 
   return { user, setUser, state, handleLogin, handleLogout };
