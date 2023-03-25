@@ -3,9 +3,7 @@ import "./Application.css";
 import Navbar from "./navbar";
 import useApplicationData from "../hooks/useApplicationData";
 import CardList from "./CardList";
-import ProgressBar from "./ProgressBar";
-import Counter from "./Counter";
-import CompletedButton from "./CompletedButton";
+
 import UserPage from "./Views/UserPage";
 import Button from "./Button";
 
@@ -106,18 +104,6 @@ export default function Application(props) {
                     user={user}
                     exercises={state.exercises}
                   />
-                  {testData.map((item, idx) => (
-                    <div key={idx}>
-                      <h2>{item.day}</h2>
-                      <Counter
-                        onCountChange={(count) => handleCountChange(count, idx)}
-                      />
-                      <ProgressBar
-                        bgcolor="#6a1b9a"
-                        completed={progresses[idx]}
-                      />
-                    </div>
-                  ))}
                 </div>
               ) : (
                 <Login />

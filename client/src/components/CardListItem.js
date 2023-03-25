@@ -36,7 +36,8 @@ import CollapsePanel from "antd/es/collapse/CollapsePanel";
 import { Collapse } from "antd";
 
 export default function CardListItem(props) {
-  const { user, setUser, id, name, img, exercise, onSelect, isSelected } = props;
+  const { user, setUser, id, name, img, exercise, onSelect, isSelected } =
+    props;
   // console.log("exercise props here", exercise);
 
   const exerciseList = exercise.map((e, index) => (
@@ -50,12 +51,18 @@ export default function CardListItem(props) {
     <div>
       <h2 className="">{name}</h2>
       <Collapse>
-      <CollapsePanel header="Exercises">
-      {exerciseList}
-      <Button user={user} setUser={setUser} id={id} plan={name} selected={isSelected} onSelect={onSelect} />
-      </CollapsePanel>
+        <CollapsePanel header="Exercises">
+          <Button
+            user={user}
+            setUser={setUser}
+            id={id}
+            plan={name}
+            selected={isSelected}
+            onSelect={onSelect}
+          />
+          {exerciseList}
+        </CollapsePanel>
       </Collapse>
-      
     </div>
   );
 }

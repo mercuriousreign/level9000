@@ -15,6 +15,7 @@ export default function useApplicationData() {
     username: "",
     password: "",
     plan_id: null,
+    plan_date: "",
   });
   // useEffect(() => {
   //   axios.get("/users").then((res) => {
@@ -94,6 +95,7 @@ export default function useApplicationData() {
           users: all[0].data,
           plans: all[1].data,
           exercises: exerciseList,
+          //isLoggedIn : true ////////////fakeuser idloggedin
         }));
         if (all[2].data.user)
           setUser((prev) => ({
@@ -132,10 +134,6 @@ export default function useApplicationData() {
     }));
     localStorage.setItem("user_id", data.user.id);
     console.log("this is the handleLogin", data.user);
-    console.log(
-      "this is the handleLogin localstorage",
-      localStorage.getItem("user_id")
-    );
   };
   const handleLogout = () => {
     setState({

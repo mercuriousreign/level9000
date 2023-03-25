@@ -1,11 +1,8 @@
-import React, { useState } from "react";
-import Navbar from "../navbar";
-import { Calendar } from "antd";
-import ButtonCalendar from "../Calendar/ButtonCalendar";
-import DayListItem from "../Calendar/DayListItem";
-import ProgressBar from "../Calendar/Progressbar";
+import React, { useEffect, useState } from "react";
+import { Calendar, Button, Checkbox } from "antd";
 import "../Calendar/DayListItem.css";
 import CharacterPage from "./CharacterPage";
+import axios from "axios";
 
 export default function UserPage(props) {
   const exercises = (planID) => {
@@ -39,43 +36,105 @@ export default function UserPage(props) {
     );
   };
 
-  const onPanelChange = (value, mode) => {
-    console.log(value.format("YYYY-MM-DD"), mode);
+  // const [dates, setDates] = useState({});
+
+  // useEffect(() => {
+  //   let currentUser = "";
+  //   if (localStorage.getItem("user_id")) {
+  //     currentUser = localStorage.getItem("user_id");
+  //     axios
+  //       .get(`http://localhost:3000/plans/date/${currentUser}`)
+  //       .then((response) => {
+  //         const newDates = {};
+  //         response.data.plan_date.forEach((date) => {
+  //           newDates[date] = true;
+  //         });
+  //         setDates(newDates);
+  //       })
+  //       .catch((err) => {
+  //         console.log(err);
+  //       });
+  //   }
+  // }, []);
+
+  // const onChange = (date, e) => {
+  //   const df = date.format("YYYY-MM-DD");
+  //   let currentUser = "";
+  //   if (localStorage.getItem("user_id")) {
+  //     currentUser = localStorage.getItem("user_id");
+  //   }
+  //   const sendData = { userid: currentUser, plan_date: df };
+  //   axios
+  //     .post(`http://localhost:3000/plans/date/${currentUser}`, sendData)
+  //     .then((response) => {
+  //       console.log("thereponse issss", response.data, sendData);
+  //       axios
+  //         .get(`http://localhost:3000/plans/date/${currentUser}`)
+  //         .then((response) => {
+  //           const newDates = {};
+  //           response.data.plan_date.forEach((date) => {
+  //             newDates[date] = true;
+  //           });
+  //           setDates(newDates);
+  //         })
+  //         .catch((err) => {
+  //           console.log(err);
+  //         });
+  //     })
+  //     .catch((err) => {
+  //       console.log("response in the onChange catch", err);
+  //     });
+  // };
+
+  const [dates, setDates] = useState({});
+
+  const fetchDates = () => {
+    const currentUser = localStorage.getItem("user_id");
+    axios
+      .get(`http://localhost:3000/plans/date/${currentUser}`)
+      .then((response) => {
+        const newDates = {};
+        response.data.plan_date.forEach((date) => {
+          newDates[date] = true;
+        });
+        setDates(newDates);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
-  const fakeDB = {};
+  useEffect(() => {
+    if (localStorage.getItem("user_id")) {
+      fetchDates();
+    }
+  }, []);
 
-  function deleteItem() {
-    console.log("delete");
-  }
+  const addPlanDate = (date) => {
+    const currentUser = localStorage.getItem("user_id");
+    const sendData = { userid: currentUser, plan_date: date };
+    axios
+      .post(`http://localhost:3000/plans/date/${currentUser}`, sendData)
+      .then((response) => {
+        fetchDates();
+      })
+      .catch((err) => {
+        console.log("response in the onChange catch", err);
+      });
+  };
 
-  function addItem() {
-    console.log("add");
-  }
+  const onChange = (date, e) => {
+    const df = date.format("YYYY-MM-DD");
+    addPlanDate(df);
+  };
 
   function dayItem(date) {
-    //
-    if (date.format("YYYY-MM-DD") === "2023-03-21") {
-      return (
-        <div>
-          <DayListItem img="Naruto_newshot.webp"></DayListItem>
-          <ButtonCalendar
-            children=" X "
-            danger={true}
-            onClick={deleteItem}
-          ></ButtonCalendar>
-        </div>
-      );
-    }
+    const df = date.format("YYYY-MM-DD");
+    const status = dates[df] || false;
 
-    return <ButtonCalendar children=" ➕ " onClick={addItem}></ButtonCalendar>;
+    return <Checkbox checked={status} onChange={(e) => onChange(date, e)} />;
   }
 
-  function monthItem(month) {
-    return <DayListItem img="Naruto_newshot.webp"></DayListItem>;
-  }
-
-  console.log("current user plan", props.plan);
   return (
     <div>
       <h1 className="headerfont">Planned schedule</h1>
@@ -89,9 +148,9 @@ export default function UserPage(props) {
         />
       )}
       {!props.plan && <h1>GO CHOOSE A PLAN!!!!</h1>}
-      {/* <div className="calendarborder">
-    <Calendar onPanelChange={onPanelChange} dateCellRender={(date)=>dayItem(date)} monthCellRender={(month)=>{monthItem(month)}}/>
-    </div> */}
+      <div className="calendarborder">
+        <Calendar dateCellRender={(date) => dayItem(date)} />
+      </div>
     </div>
   );
 }

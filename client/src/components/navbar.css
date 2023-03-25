@@ -1,17 +1,58 @@
 .navbar {
-  background-color: rgb(172, 230, 230);
-  color: #b4db47;
+  /* background-color: rgb(60, 89, 89);*/
+  color: linear-gradient(to right, #314755 0%, #26a0da  51%, #314755  100%);
   /* display: flex; */
+  background-image: linear-gradient(to right, #314755 0%, #26a0da  51%, #314755  100%);
+  background-size: 100%;
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-
+  stroke: black;
   width: 100%;
+  border-style: inset;
+  border-color: linear-gradient(276deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+  border-width: 15px;
+  animation: gradient-anim 0.5s ease-in forwards;
 }
+
+.navbar:hover{
+  animation: gradient-anim 0.5s ease-in forwards;
+}
+
+@keyframes gradient-anim {
+  0%{ background-size: 650%;}
+  40%{ background-size: 650%;}
+  100%{ background-size: 650%;}
+}
+         
+.btn-grad {
+  background-image: linear-gradient(to right, #314755 0%, #26a0da  51%, #314755  100%);
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;            
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
+}
+
+.btn-grad:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+
 
 .navbar-container {
   max-width: 960px;
   margin: 0 auto;
+  stroke: black;
+  stroke-width: 13px;
+  stroke-dasharray: 4px;
 }
 
 ul {
@@ -19,16 +60,19 @@ ul {
   margin: 0;
   padding: 0;
   display: flex;
+  
 }
 
 li {
   margin-right: 1rem;
+  
 }
 
 a {
   color: #fff;
   text-decoration: none;
   font-weight: bold;
+  
 }
 
 a:hover {
@@ -38,4 +82,6 @@ a:hover {
 .home {
   margin-right: auto;
   margin-left: 0;
+  color: aliceblue;
+  font-family: 'Rockwell Extra Bold';
 }
