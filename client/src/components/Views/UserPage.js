@@ -1,13 +1,8 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "../navbar";
 import { Calendar , Button , Checkbox} from "antd";
-import ButtonCalendar from "../Calendar/ButtonCalendar";
-import DayListItem from "../Calendar/DayListItem";
-import ProgressBar from "../Calendar/Progressbar";
 import "../Calendar/DayListItem.css";
 import CharacterPage from "./CharacterPage";
 import axios from "axios";
-import useApplicationData from "../../hooks/useApplicationData";
 
 export default function UserPage(props) {
   const [dates, setDates] = useState({});
@@ -23,7 +18,6 @@ export default function UserPage(props) {
           response.data.plan_date.forEach((date) => {
             newDates[date] = true;
           });
-          console.log("after the foreach new dates is",newDates)
           setDates(newDates);
         })
         .catch((err) => {
@@ -52,13 +46,7 @@ export default function UserPage(props) {
 
     return <Checkbox checked={status} onChange={(e)=>onChange(date,e)}/>;
   }
-
-  function monthItem(month) {
-    return <DayListItem img="Naruto_newshot.webp"></DayListItem>;
-  }
-
-  console.log("current user plan", props.plan);
- 
+  
   return (
     <div>
       <h1 className="headerfont">Planned schedule</h1>
@@ -71,7 +59,7 @@ export default function UserPage(props) {
       )}
       {!props.plan && <h1>GO CHOOSE A PLAN!!!!</h1>}
       <div className="calendarborder">
-    <Calendar dateCellRender={(date)=>dayItem(date)} monthCellRender={(month)=>{monthItem(month)}}/>
+    <Calendar dateCellRender={(date)=>dayItem(date)}/>
     </div>
     </div>
   );
