@@ -17,6 +17,9 @@ export default function useApplicationData() {
     plan_id: null,
     plan_date: "",
   });
+
+  const [planLike, setPlanLike] = useState(0);
+
   // useEffect(() => {
   //   axios.get("/users").then((res) => {
   //     setUsers(res.data);
@@ -97,6 +100,9 @@ export default function useApplicationData() {
           exercises: exerciseList,
           //isLoggedIn : true ////////////fakeuser idloggedin
         }));
+
+        console.log("likes for plan at start", planLike);
+
         if (all[2].data.user)
           setUser((prev) => ({
             ...prev,
