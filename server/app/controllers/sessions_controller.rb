@@ -1,9 +1,11 @@
 class SessionsController < ApplicationController
+  @@current_user1 = {}
   def create
     @user = User.find_by(username: session_params[:username])
-
+    @@current_user1 = @user
     if @user && @user.authenticate(session_params[:password])
       login!
+
       render json: {
         logged_in: true,
         user: @user
@@ -11,7 +13,7 @@ class SessionsController < ApplicationController
     else
       render json: {
         status: 401,
-        errors: ['no such user, please try again']
+        errors: ['wrong password or username, please try again']
       }
     end
   end
@@ -36,6 +38,28 @@ class SessionsController < ApplicationController
       status: 200,
       logged_out: true
     }
+  end
+
+  def current_user1
+    if @@current_user1
+
+      render json: {
+
+        user: @@current_user1
+      }
+    else
+      render json: {
+
+        message: 'no such user'
+      }
+    end
+  end
+
+  def saving_plan
+    return unless @@current_user1
+
+    @@current_user1 = params[:user]
+    puts 'this is', params[:user]
   end
 
   private

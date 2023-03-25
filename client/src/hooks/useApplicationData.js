@@ -9,6 +9,13 @@ export default function useApplicationData() {
     plans: [],
     exercises: [],
   });
+  const [user, setUser] = useState({
+    id: "",
+    email: "",
+    username: "",
+    password: "",
+    plan_id: null,
+  });
   // useEffect(() => {
   //   axios.get("/users").then((res) => {
   //     setUsers(res.data);
@@ -19,6 +26,7 @@ export default function useApplicationData() {
     Promise.all([
       axios.get("http://localhost:3000/users"),
       axios.get("http://localhost:3000/plans"),
+      axios.get("http://localhost:3000/current_user1"),
       axios.get(`https://exercises-by-api-ninjas.p.rapidapi.com/v1/exercises`, {
         params: { type: "cardio" },
         headers: {
@@ -78,7 +86,7 @@ export default function useApplicationData() {
     ])
       .then((all) => {
         let exerciseList = [];
-        for (let i = 2; i < all.length; i++) {
+        for (let i = 3; i < all.length; i++) {
           exerciseList = exerciseList.concat(all[i].data);
         }
         setState((prev) => ({
@@ -87,11 +95,26 @@ export default function useApplicationData() {
           plans: all[1].data,
           exercises: exerciseList,
         }));
+        if (all[2].data.user)
+          setUser((prev) => ({
+            ...prev,
+            id: all[2].data.user.id,
+            plan_id: all[2].data.user.plan_id,
+            email: all[2].data.user.email,
+          }));
+        if (all[2].data.user.id) {
+          setState((prev) => ({ ...prev, isLoggedIn: true }));
+        }
+
+        console.log("This is userID", localStorage.getItem("user_id"));
       })
       .catch((err) => console.log(err));
-    setUser({});
+
     // loginStatus();
   }, []);
+  // const checkLogin = (id) => {
+  //   Number.isInteger(parseInt(id));
+  // };
 
   const handleLogin = (data) => {
     setState({
@@ -99,16 +122,26 @@ export default function useApplicationData() {
       isLoggedIn: true,
       user: data.user,
     });
-    setUser({ ...user, id: data.user.id, plan_id: data.user.plan_id });
+
+    console.log("data is ", data);
+    setUser((prev) => ({
+      ...prev,
+      ...data.user,
+      id: data.user.id,
+      plan_id: data.user.plan_id,
+    }));
+    localStorage.setItem("user_id", data.user.id);
     console.log("this is the handleLogin", data.user);
+    console.log(
+      "this is the handleLogin localstorage",
+      localStorage.getItem("user_id")
+    );
   };
   const handleLogout = () => {
     setState({
       ...state,
       isLoggedIn: false,
-      user: {},
     });
-    setUser({});
   };
   // const loginStatus = () => {
   //   axios
@@ -122,13 +155,6 @@ export default function useApplicationData() {
   //     })
   //     .catch((error) => console.log("api errors:", error));
   // };
-  const [user, setUser] = useState({
-    id: "",
-    email: "",
-    username: "",
-    password: "",
-    plan_id: null,
-  });
 
   return { user, setUser, state, handleLogin, handleLogout };
 }

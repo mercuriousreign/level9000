@@ -5,6 +5,10 @@ import { useNavigate } from "react-router-dom";
 
 export default function Login(props) {
   let navigate = useNavigate();
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   const redirect = () => {
     navigate("/");
   };
@@ -13,7 +17,7 @@ export default function Login(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const { username, email, password } = props.user;
+
     let user = {
       username: username,
       email: email,
@@ -25,6 +29,8 @@ export default function Login(props) {
         if (response.data.logged_in) {
           console.log("here are the props", props);
           props.login(response.data);
+          console.log("hello hello hello", response.data);
+
           redirect();
         } else {
           setErr(response.data.errors);
@@ -45,9 +51,6 @@ export default function Login(props) {
     );
   };
 
-  const handleChange = (event) => {
-    props.setUser({ ...props.user, [event.target.name]: event.target.value });
-  };
   if (err) {
     return handleErrors();
   }
@@ -59,22 +62,22 @@ export default function Login(props) {
           placeholder="username"
           type="text"
           name="username"
-          value={props.user.username}
-          onChange={handleChange}
+          value={username}
+          onChange={(event) => setUsername(event.target.value)}
         />
         <input
           placeholder="email"
           type="text"
           name="email"
-          value={props.user.email}
-          onChange={handleChange}
+          value={email}
+          onChange={(event) => setEmail(event.target.value)}
         />
         <input
           placeholder="password"
           type="password"
           name="password"
-          value={props.user.password}
-          onChange={handleChange}
+          value={password}
+          onChange={(event) => setPassword(event.target.value)}
         />
         <button placeholder="submit" type="submit">
           Log In

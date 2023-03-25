@@ -15,7 +15,7 @@ export default function Button(props) {
   };
   function handleClick(planID) {
     // console.log("user plan_id inside button", user.plan_id)
-    console.log("user email after button press", user.email);
+
     const tester = {
       user: {
         plan_id: planID,
@@ -27,8 +27,8 @@ export default function Button(props) {
       .then((response) => {
         const userList = response.data.users;
         const currentUserEmail = user.email;
+
         currentuser = userList.find((user) => user.email === currentUserEmail);
-        console.log("currentuser id inside button", currentuser);
       })
       .then(() => {
         axios
@@ -36,10 +36,20 @@ export default function Button(props) {
           .then((response) => {
             if (response.data) {
               console.log("success", response.data);
-              setUser({ ...user, id: currentuser.id, plan_id: id });
+              setUser((prev) => ({
+                ...prev,
+                plan_id: response.data.user.plan_id,
+              }));
+              console.log("before hi", user);
             } else {
               console.log("err", response.data);
             }
+            return response;
+          })
+          .then((response) => {
+            const user = response.data.user;
+            axios.put("http://localhost:3000/saving_plan", { user });
+            console.log("hi hi hi hi :", response);
           })
           .catch((error) => console.log("api errors:", error));
         onSelect();

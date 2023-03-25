@@ -8,12 +8,16 @@ export default function SignUp(props) {
   const redirect = () => {
     navigate("/");
   };
-  
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [password_confirmation, setPasswordconfirmation] = useState("");
+
   const [err, setErr] = useState();
   const handleSubmit = (event) => {
     console.log("testin");
     event.preventDefault();
-    const { username, email, password, password_confirmation } = props.user;
+
     let user = {
       username: username,
       email: email,
@@ -48,9 +52,6 @@ export default function SignUp(props) {
     );
   };
 
-  const handleChange = (event) => {
-    props.setUser({ ...props.user, [event.target.name]: event.target.value });
-  };
   if (err) {
     return handleErrors();
   }
@@ -62,29 +63,29 @@ export default function SignUp(props) {
           placeholder="username"
           type="text"
           name="username"
-          value={props.user.username}
-          onChange={handleChange}
+          value={username}
+          onChange={(event) => setUsername(event.target.value)}
         />
         <input
           placeholder="email"
           type="text"
           name="email"
-          value={props.user.email}
-          onChange={handleChange}
+          value={email}
+          onChange={(event) => setEmail(event.target.value)}
         />
         <input
           placeholder="password"
           type="password"
           name="password"
-          value={props.user.password}
-          onChange={handleChange}
+          value={password}
+          onChange={(event) => setPassword(event.target.value)}
         />
         <input
           placeholder="password confirmation"
           type="password"
           name="password_confirmation"
           value={props.user.password_confirmation}
-          onChange={handleChange}
+          onChange={(event) => setPasswordconfirmation(event.target.value)}
         />
 
         <button placeholder="submit" type="submit">
