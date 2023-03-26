@@ -29,7 +29,7 @@ plan6 = Plan.create(name: 'Biscuit Krueger', img: 'https://www.siliconera.com/wp
 plan7 = Plan.create(name: 'Naruto Uzumaki', img: 'https://i.pinimg.com/564x/69/f6/2b/69f62ba576f9151fa2b96714e62ff9fa.jpg')
 
 plan8 = Plan.create(name: 'Potato Potator', img: 'https://spudsmart.com/wp-content/uploads/2021/04/7.-20-Most-potato-Cayman-HZPC-scaled-1.jpg')
-plan9 = Plan.create(name: 'Saitama',
-                    img: 'https://qph.cf2.quoracdn.net/main-qimg-c8010b4775bf02d599e659ae309f863e-pj')
-plan10 = Plan.create(name: 'Alex Louis Armstrong',
-                     img: 'https://www.flyingmachinestudios.com/assets/images/posts/leiningen/so-sparkly.png')
+# plan9 = Plan.create(name: 'Saitama',
+#                     img: 'https://qph.cf2.quoracdn.net/main-qimg-c8010b4775bf02d599e659ae309f863e-pj')
+plan9 = Plan.create(name: 'Alex Louis Armstrong',
+                    img: 'https://www.flyingmachinestudios.com/assets/images/posts/leiningen/so-sparkly.png')
