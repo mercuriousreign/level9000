@@ -5,13 +5,13 @@ import Button from "./Button";
 import { Button as ButtonD } from "antd";
 // import { Collapse , Card as CardM } from "@mui/material";
 import CollapsePanel from "antd/es/collapse/CollapsePanel";
-import { Collapse ,Dropdown,Popover } from "antd";
+import { Collapse, Dropdown, Popover } from "antd";
 
 export default function CardListItem(props) {
   const { user, setUser, id, name, img, exercise, onSelect, isSelected } =
     props;
 
-  const { counter, setCounter } = useState(0);
+  const [counter, setCounter] = useState();
   let counter2 = 0;
 
   // console.log("exercise props here", exercise);

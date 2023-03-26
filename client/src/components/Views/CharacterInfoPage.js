@@ -1,20 +1,40 @@
-import { Button } from "antd"
+import { Button, Card } from "antd";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
-export default function characterInfoPage (props) {
-  const {plan} = props
+export default function CharacterInfoPage(props) {
+  const { plan } = props;
+  const [counter, setCounter] = useState();
 
-  function handleLike(){
-    
+  function fetchCounter() {
+    axios.get(`http://localhost:3000/plans/${plan.id}`).then((response) => {
+      setCounter(response.data.plan.likes);
+    });
+  }
 
+  useEffect(() => {
+    fetchCounter();
+  }, []);
 
+  function handleLike() {
+    axios
+      .post(`http://localhost:3000/plans/likes/${plan.id}`)
+      .then((response) => {
+        setCounter(response.data.plan.likes);
+      });
+    console.log("change here");
   }
 
   return (
     <div>
-    <h1>{plan.name}</h1>
-      <p>{plan.description}</p>
-      <Button onClick={handleLike}>Like me!</Button>
+      <Card cover={<img src={plan.img} />} style={{ justifyContent: "center" }}>
+        <h1 style={{ textAlign: "center" }}>{plan.name}</h1>
+      </Card>
+      <div>
+        <p>{plan.description}</p>
+        <p>{counter}</p>
+        <Button onClick={handleLike}>Like me!</Button>
       </div>
-  )
-
+    </div>
+  );
 }

@@ -9,7 +9,6 @@ import CardListItem from "../CardListItem";
 import { Card, Button } from "antd";
 import { Card as CardM } from "@mui/material";
 
-
 //import Button from "antd";
 
 export default function CharacterPage(props) {
@@ -18,7 +17,6 @@ export default function CharacterPage(props) {
   }
   console.log("exercises", props.exercises(1));
   return (
-    //<CardListItem name={name} img={img}/>
     <div>
       <Card
         hoverable
@@ -32,16 +30,6 @@ export default function CharacterPage(props) {
         <p>{props.description}</p>
         {props.exercises(props.user.plan_id)}
       </Card>
-      {/* <div>
-    
-      <h1>{props.name}</h1>
-      <img src={props.img}></img>
-      <p>Muscle target :{props.muscle}</p>
-      <p>{props.description}</p>
-    </div> */}
-      {/* <div>
-    <ButtonCalendar default={true} onClick={addPlan}>Add to my Calendar</ButtonCalendar>
-    </div> */}
     </div>
   );
 }
