@@ -89,9 +89,6 @@ export default function Login(props) {
       </div>
       <div class="action">
         <button type="submit">Log In</button>
-        <button>
-
-        </button>
       </div>
     </form>
   </div>
