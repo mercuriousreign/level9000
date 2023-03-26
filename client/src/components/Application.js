@@ -3,9 +3,7 @@ import "./Application.css";
 import Navbar from "./navbar";
 import useApplicationData from "../hooks/useApplicationData";
 import CardList from "./CardList";
-import ProgressBar from "./ProgressBar";
-import Counter from "./Counter";
-import CompletedButton from "./CompletedButton";
+
 import UserPage from "./Views/UserPage";
 import Button from "./Button";
 
@@ -27,22 +25,15 @@ export default function Application(props) {
 
   const [completed, setCompleted] = useState(0);
 
-  useEffect(() => {
-  }, []);
+  useEffect(() => {}, []);
 
-
-  const [progresses, setProgresses] = useState(
-    testData.map((item) => 0)
-  );
- 
-
+  const [progresses, setProgresses] = useState(testData.map((item) => 0));
 
   function handleCountChange(count, idx) {
     let newProgresses = [...progresses];
     newProgresses[idx] = (count / 6) * 100;
     setProgresses(newProgresses);
   }
- 
 
   ////*****************************************************
 
@@ -108,17 +99,14 @@ export default function Application(props) {
             element={
               state.isLoggedIn ? (
                 <div>
-                  <UserPage user={user} plan={state.plans[user.plan_id - 1]} />
-                  {testData.map((item, idx) => (
-                    <div key={idx}>
-                      <h2>{item.day}</h2>
-                      <Counter onCountChange={(count) => handleCountChange(count, idx)} />
-                      <ProgressBar bgcolor="#6a1b9a" completed={progresses[idx]} />
-                    </div>
-                  ))}
+                  <UserPage
+                    plan={state.plans[user.plan_id - 1]}
+                    user={user}
+                    exercises={state.exercises}
+                  />
                 </div>
               ) : (
-                <Login />
+                <div>Loading</div>
               )
             }
           />

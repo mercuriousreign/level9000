@@ -1,67 +1,65 @@
-// import React, { useState } from "react";
-// import "./CardListItem.css";
-
-// export default function CardListItem(props) {
-//   const { name, img, exercise } = props;
-//   console.log("excercise props here", exercise);
-//   //console.log("props inside with decons", name, img);
-//   //Props in here are id, name, description and also image
-//   return (
-//     <div>
-//       <h2 className="">{name}</h2>
-//       <h2 className="">{}</h2>
-//       <img className="" src={img} />
-
-//       <h3>{exercise[0].name}</h3>
-//       <p>{exercise[0].instructions}</p>
-//       <h3>{exercise[1].name}</h3>
-//       <p>{exercise[1].instructions}</p>
-//       <h3>{exercise[2].name}</h3>
-//       <p>{exercise[2].instructions}</p>
-//       <h3>{exercise[3].name}</h3>
-//       <p>{exercise[3].instructions}</p>
-//       <h3>{exercise[4].name}</h3>
-//       <p>{exercise[4].instructions}</p>
-//       <h3>{exercise[5].name}</h3>
-//       <p>{exercise[5].instructions}</p>
-//     </div>
-//   );
-// }
-
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./CardListItem.css";
+import axios from "axios";
 import Button from "./Button";
+import { Button as ButtonD } from "antd";
 // import { Collapse , Card as CardM } from "@mui/material";
 import CollapsePanel from "antd/es/collapse/CollapsePanel";
 import { Collapse ,Dropdown,Popover } from "antd";
 
 export default function CardListItem(props) {
-  const { user, setUser, id, name, img, exercise, onSelect, isSelected } = props;
+  const { user, setUser, id, name, img, exercise, onSelect, isSelected } =
+    props;
+
+  const { counter, setCounter } = useState(0);
+  let counter2 = 0;
+
   // console.log("exercise props here", exercise);
 
   const exerciseList = exercise.map((e, index) => (
-    <div key={index}>
-      <h3>{e.name}</h3>
-      <p>{e.instructions}</p>
-    </div>
+    <li key={index}>{e.name}</li>
   ));
+
+  function fetchCounter() {
+    axios.get(`http://localhost:3000/plans/${id}`).then((response) => {
+      console.log("fetch data for likes", response.data.plan.likes);
+      setCounter(response.data.plan.likes);
+      console.log("counter in each cardlistitem", counter);
+      counter2 = response.data.plan.likes;
+    });
+  }
+
+  useEffect(() => {
+    fetchCounter();
+  }, []);
+
+  function change() {
+    axios.post(`http://localhost:3000/plans/likes/${id}`).then((response) => {
+      console.log(response.data);
+    });
+    console.log("change here");
+  }
 
   return (
     <div>
       <h2 className="">{name}</h2>
-      <Collapse bordered={false}>
-      <CollapsePanel header="Exercises" bordered={false}>
-      
-      <Popover content={exerciseList}>
-        <h3>excercise
-        <Button user={user} setUser={setUser} id={id} plan={name} selected={isSelected} onSelect={onSelect} />
-        </h3>
-      </Popover>
-      {/* {exerciseList} */}
-      </CollapsePanel>
+      <h2 className="">{counter2}</h2>
+      <Collapse>
+        <CollapsePanel header="Exercises">
+          <Button
+            user={user}
+            setUser={setUser}
+            id={id}
+            plan={name}
+            selected={isSelected}
+            onSelect={onSelect}
+          />
+          <ButtonD onClick={change}>Like Counter</ButtonD>
+          <div className="list">
+            <ol>{exerciseList}</ol>
+          </div>
+        </CollapsePanel>
       </Collapse>
-      {/* <Dropdown menu={{exerciseList,}}></Dropdown> */}
-      
     </div>
   );
 }
