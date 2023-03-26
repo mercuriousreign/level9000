@@ -11,6 +11,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Login from "./Login";
 import SignUp from "./SignUp";
+import image from "../img/over9000.gif"
 
 export default function Application(props) {
   ////**************** Progress tracker  *************************
@@ -55,7 +56,7 @@ export default function Application(props) {
   console.log("isloggedIN", state.isLoggedIn);
 
   return (
-    <div className="App">
+    <div className="App" style={{ backgroundImage:`url(${image})`,     backgroundSize: 'cover', backgroundRepeat: 'no-repeat', height:1450,width:1450}}>
       <BrowserRouter>
         <Navbar logout={handleLogout} loggedOut={state.isLoggedIn} />
         <Routes>
@@ -64,12 +65,9 @@ export default function Application(props) {
             path="/"
             element={
               <div>
-                <h1>
-                  Welcome to Over9000. Work out plans designed to make as strong
-                  as your Hero Each plan consists of 6 excercises. You'll do one
-                  excerxise as many times as possible each day plus on rest day.
-                  Now choose your challenge:
-                </h1>
+                {/* <h1 className="intro">
+                  Welcome to Over9000. Choose your mission:
+                </h1> */}
                 <CardList
                   plans={state.plans}
                   exercises={state.exercises}

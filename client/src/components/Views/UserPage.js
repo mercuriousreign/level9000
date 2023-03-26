@@ -137,6 +137,9 @@ export default function UserPage(props) {
   }
 
   return (
+    <div>
+      <h1 className="headerfont">Welcome to Your Dojo:</h1>
+
     <div class="container">
       {props.plan && (
         <CharacterPage
@@ -151,6 +154,7 @@ export default function UserPage(props) {
       <div className="calendarborder">
         <Calendar dateCellRender={(date) => dayItem(date)} />
       </div>
+    </div>
     </div>
   );
 }

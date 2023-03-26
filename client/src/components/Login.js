@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Login.css"
+import image from "../img/over9000.gif"
 
 export default function Login(props) {
   let navigate = useNavigate();

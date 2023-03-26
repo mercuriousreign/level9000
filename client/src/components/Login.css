@@ -1,14 +1,9 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  -webkit-font-smoothing: antialiased;
-}
 
-body {
+
+/* body {
   background: #e35869;
   font-family: 'Rubik', sans-serif;
-}
+} */
 
 .login-form {
   background: #fff;

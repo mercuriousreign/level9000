@@ -1,3 +1,10 @@
+* {
+  margin-top: 2;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+
 .cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -6,3 +13,14 @@
 body{
   background: linear-gradient(to right, #00416a, #e4e5e6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
+
+.intro{
+    font-family: fantasy;
+    color: aliceblue;
+    width: 500px;
+    margin: 65px ;
+    display: flex;
+    flex-direction: column;
+    border-radius: 4px;
+    box-shadow: 0 2px 25px rgba(0, 0, 0, 0.2);
+  }

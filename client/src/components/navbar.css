@@ -1,7 +1,7 @@
-.navbar {
-  /* background-color: rgb(60, 89, 89);*/
+/* .navbar {
+
   color: linear-gradient(to right, #314755 0%, #26a0da  51%, #314755  100%);
-  /* display: flex; */
+
   background-image: linear-gradient(to right, #314755 0%, #26a0da  51%, #314755  100%);
   background-size: 100%;
   justify-content: space-between;
@@ -40,7 +40,7 @@
 }
 
 .btn-grad:hover {
-  background-position: right center; /* change the direction of the change here */
+  background-position: right center; 
   color: #fff;
   text-decoration: none;
 }
@@ -84,4 +84,55 @@ a:hover {
   margin-left: 0;
   color: aliceblue;
   font-family: 'Rockwell Extra Bold';
+}
+ */
+
+
+ .navbar {
+  background-color: #333;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li {
+  margin: 0 10px;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  transition: all 0.2s ease-in-out;
+}
+
+.navbar a:hover {
+  color: #ff0;
+}
+
+.home a {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    justify-content: center;
+    height: auto;
+  }
+  
+  .navbar li {
+    margin: 10px 0;
+  }
 }
