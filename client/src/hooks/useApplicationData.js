@@ -18,7 +18,7 @@ export default function useApplicationData() {
     plan_date: "",
   });
 
-  const [planLike, setPlanLike] = useState(0);
+  const [plans, setPlans] = useState([]);
 
   // useEffect(() => {
   //   axios.get("/users").then((res) => {
@@ -101,7 +101,8 @@ export default function useApplicationData() {
           //isLoggedIn : true ////////////fakeuser idloggedin
         }));
 
-        console.log("likes for plan at start", planLike);
+        setPlans(all[1].data);
+        console.log("the plans", all[1].data);
 
         if (all[2].data.user)
           setUser((prev) => ({
@@ -147,6 +148,19 @@ export default function useApplicationData() {
       isLoggedIn: false,
     });
   };
+  const addLikes = (planID) => {
+    setPlans((prevPlans) =>
+      prevPlans.map((plan, index) => {
+        if (index === planID - 1) {
+          return {
+            ...plan,
+            likes: plan.likes + 1,
+          };
+        }
+        return plan;
+      })
+    );
+  };
   // const loginStatus = () => {
   //   axios
   //     .get("http://localhost:3000/logged_in")
@@ -160,7 +174,7 @@ export default function useApplicationData() {
   //     .catch((error) => console.log("api errors:", error));
   // };
 
-  return { user, setUser, state, handleLogin, handleLogout };
+  return { plans, addLikes, user, setUser, state, handleLogin, handleLogout };
 }
 
 //   const addPlan = function(user,planItem) {

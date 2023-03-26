@@ -38,6 +38,8 @@ export default function Application(props) {
   ////*****************************************************
 
   const {
+    plans,
+    addLikes,
     user,
     setUser,
     state,
@@ -75,6 +77,8 @@ export default function Application(props) {
                   exercises={state.exercises}
                   user={user}
                   setUser={setUser}
+                  addLikes={addLikes}
+                  planList={plans}
                 />
               </div>
             }

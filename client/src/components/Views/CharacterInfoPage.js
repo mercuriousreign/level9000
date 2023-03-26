@@ -1,4 +1,4 @@
-import { Button, Card } from "antd";
+import { Button, Card, Descriptions } from "antd";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -31,9 +31,15 @@ export default function CharacterInfoPage(props) {
         <h1 style={{ textAlign: "center" }}>{plan.name}</h1>
       </Card>
       <div>
-        <p>{plan.description}</p>
-        <p>{counter}</p>
-        <Button onClick={handleLike}>Like me!</Button>
+        <Descriptions title={plan.name} bordered>
+          <Descriptions.Item label="Info">
+            <p>{plan.description}</p>{" "}
+          </Descriptions.Item>
+          <Descriptions.Item label="Likes">
+            <p>Likes : {counter}</p>
+            <Button onClick={handleLike}>Like me!</Button>
+          </Descriptions.Item>
+        </Descriptions>
       </div>
     </div>
   );

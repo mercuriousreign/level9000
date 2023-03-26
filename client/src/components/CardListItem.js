@@ -8,42 +8,42 @@ import CollapsePanel from "antd/es/collapse/CollapsePanel";
 import { Collapse, Dropdown, Popover } from "antd";
 
 export default function CardListItem(props) {
-  const { user, setUser, id, name, img, exercise, onSelect, isSelected } =
-    props;
-
-  const [counter, setCounter] = useState();
-  let counter2 = 0;
+  const {
+    planList,
+    addLikes,
+    user,
+    setUser,
+    id,
+    name,
+    img,
+    exercise,
+    onSelect,
+    isSelected,
+  } = props;
 
   // console.log("exercise props here", exercise);
-
+  const [counter, setCounter] = useState(0);
   const exerciseList = exercise.map((e, index) => (
     <li key={index}>{e.name}</li>
   ));
 
-  function fetchCounter() {
-    axios.get(`http://localhost:3000/plans/${id}`).then((response) => {
-      console.log("fetch data for likes", response.data.plan.likes);
-      setCounter(response.data.plan.likes);
-      console.log("counter in each cardlistitem", counter);
-      counter2 = response.data.plan.likes;
-    });
-  }
-
-  useEffect(() => {
-    fetchCounter();
-  }, []);
-
   function change() {
     axios.post(`http://localhost:3000/plans/likes/${id}`).then((response) => {
-      console.log(response.data);
+      setCounter(counter + 1);
+      props.setCount(props.count + 1);
+      console.log("this is llkjlkjlkjlj", id);
+      addLikes(id);
+      console.log("this is the planList", planList);
     });
+
     console.log("change here");
   }
 
   return (
     <div>
       <h2 className="">{name}</h2>
-      <h2 className="">{counter2}</h2>
+      {planList[id - 1] && <h2 className="">{planList[id - 1].likes}</h2>}
+
       <Collapse>
         <CollapsePanel header="Exercises">
           <Button

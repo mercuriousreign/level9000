@@ -7,7 +7,7 @@ export default function CardList(props) {
   console.log("Props plans inside cardlist", props.plans);
 
   const [selectedPlan, setSelectedPlan] = useState(null);
-
+  const [count, setCount] = useState(0);
   const exercises = [
     [0, 1, 2, 3, 4, 5],
     [6, 7, 8, 9, 10, 11],
@@ -31,6 +31,10 @@ export default function CardList(props) {
         cover={<img src={plan.img}></img>}
       >
         <CardListItem
+          planList={props.planList}
+          addLikes={props.addLikes}
+          count={count}
+          setCount={setCount}
           user={props.user}
           setUser={props.setUser}
           id={plan.id}

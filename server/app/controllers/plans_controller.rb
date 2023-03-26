@@ -37,7 +37,7 @@ class PlansController < ApplicationController
   end
 
   def update_like
-    @plans = Plan.all
+    @plans = Plan.order(id: :asc)
     @plan = Plan.find(params[:id])
     @plan.likes += 1
     @plan.save
