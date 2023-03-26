@@ -7,6 +7,9 @@ import ProgressBar from "../Calendar/Progressbar";
 import "../Calendar/DayListItem.css"
 import CardListItem from "../CardListItem";
 import {Card,Button} from "antd";
+import { Card as CardM } from "@mui/material";
+
+
 //import Button from "antd";
 
 export default function CharacterPage(props){

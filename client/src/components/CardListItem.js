@@ -33,7 +33,7 @@ import "./CardListItem.css";
 import Button from "./Button";
 // import { Collapse , Card as CardM } from "@mui/material";
 import CollapsePanel from "antd/es/collapse/CollapsePanel";
-import { Collapse } from "antd";
+import { Collapse ,Dropdown,Popover } from "antd";
 
 export default function CardListItem(props) {
   const { user, setUser, id, name, img, exercise, onSelect, isSelected } = props;
@@ -51,10 +51,16 @@ export default function CardListItem(props) {
       <h2 className="">{name}</h2>
       <Collapse bordered={false}>
       <CollapsePanel header="Exercises" bordered={false}>
-      <Button user={user} setUser={setUser} id={id} plan={name} selected={isSelected} onSelect={onSelect} />
-      {exerciseList}
+      
+      <Popover content={exerciseList}>
+        <h3>excercise
+        <Button user={user} setUser={setUser} id={id} plan={name} selected={isSelected} onSelect={onSelect} />
+        </h3>
+      </Popover>
+      {/* {exerciseList} */}
       </CollapsePanel>
       </Collapse>
+      {/* <Dropdown menu={{exerciseList,}}></Dropdown> */}
       
     </div>
   );
