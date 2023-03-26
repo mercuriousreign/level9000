@@ -45,3 +45,23 @@
   font-size: 14px;
   line-height: 1.5;
 }
+
+
+.headerfont {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 60px;
+  color: hsl(50, 100%, 50%); /* Gold color */
+  -webkit-text-stroke: 1px black;
+  text-shadow: 2px 2px #FFA500; /* Orange shadow */
+  animation: pulse 1.5s infinite alternate; /* Animation */
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
