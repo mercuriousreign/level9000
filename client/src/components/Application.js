@@ -55,7 +55,28 @@ export default function Application(props) {
 
   console.log("testing exercises", state.plans);
   console.log("isloggedIN", state.isLoggedIn);
-
+  // const finalForm = () => {
+  //   const finals = state.plans.map((each) => {
+  //     return (
+  //       <li key={each.id}>
+  //         <img src={each.FinalForm} alt="final form" />
+  //       </li>
+  //     );
+  //   });
+  //   return (
+  //     <div>
+  //       <ul>{finals}</ul>
+  //     </div>
+  //   );
+  // };
+  // const exercisesTest = state.exercises.map((each, index) => {
+  //   return (
+  //     <li key={index}>
+  //       {index}. {each.name}
+  //     </li>
+  //   );
+  // });
+  console.log("exercisesTest", state.exercises);
   return (
     <div className="App">
       <BrowserRouter>
@@ -72,6 +93,10 @@ export default function Application(props) {
                   excerxise as many times as possible each day plus on rest day.
                   Now choose your challenge:
                 </h1>
+                {/* {finalForm()}
+                <ul style={{ display: "flex", flexDirection: "column" }}>
+                  {exercisesTest}
+                </ul> */}
                 <CardList
                   plans={state.plans}
                   exercises={state.exercises}
