@@ -10,8 +10,9 @@ Rails.application.routes.draw do
   get '/users/plans/:id', to: 'users#show_plans'
   post '/users/plans/:id', to: 'users#id'
   post '/useru', to: 'sessions#update'
-  post '/plans/date/:userid', to: "plans#add_date"
-  get '/plans/date/:userid', to: "plans#show_date"
+  post '/plans/date/:userid', to: 'plans#add_date'
+  get '/plans/date/:userid', to: 'plans#show_date'
+  post '/plans/likes/:id', to: 'plans#update_like'
 
   resources :users, only: %i[create show index update] do
     resources :items, only: %i[create show index destroy]

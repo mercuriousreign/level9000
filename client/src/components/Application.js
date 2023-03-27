@@ -39,6 +39,8 @@ export default function Application(props) {
   ////*****************************************************
 
   const {
+    plans,
+    addLikes,
     user,
     setUser,
     state,
@@ -54,9 +56,30 @@ export default function Application(props) {
 
   console.log("testing exercises", state.plans);
   console.log("isloggedIN", state.isLoggedIn);
-
+  // const finalForm = () => {
+  //   const finals = state.plans.map((each) => {
+  //     return (
+  //       <li key={each.id}>
+  //         <img src={each.FinalForm} alt="final form" />
+  //       </li>
+  //     );
+  //   });
+  //   return (
+  //     <div>
+  //       <ul>{finals}</ul>
+  //     </div>
+  //   );
+  // };
+  // const exercisesTest = state.exercises.map((each, index) => {
+  //   return (
+  //     <li key={index}>
+  //       {index}. {each.name}
+  //     </li>
+  //   );
+  // });
+  console.log("exercisesTest", state.exercises);
   return (
-    <div className="App" style={{ backgroundImage:`url(${image})`,     backgroundSize: 'cover', backgroundRepeat: 'no-repeat', height:1450,width:1450}}>
+  <div className="App" style={{ backgroundImage:`url(${image})`,     backgroundSize: '', backgroundRepeat: 'round', height:2500 ,width:1450}}>
       <BrowserRouter>
         <Navbar logout={handleLogout} loggedOut={state.isLoggedIn} />
         <Routes>
@@ -64,7 +87,7 @@ export default function Application(props) {
             exact
             path="/"
             element={
-              <div>
+              <div >
                 {/* <h1 className="intro">
                   Welcome to Over9000. Choose your mission:
                 </h1> */}
@@ -73,6 +96,8 @@ export default function Application(props) {
                   exercises={state.exercises}
                   user={user}
                   setUser={setUser}
+                  addLikes={addLikes}
+                  planList={plans}
                 />
               </div>
             }
