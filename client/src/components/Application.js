@@ -11,6 +11,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Login from "./Login";
 import SignUp from "./SignUp";
+import CharacterInfoPage from "./Views/CharacterInfoPage";
+import { ConfigProvider } from "antd";
 
 export default function Application(props) {
   ////**************** Progress tracker  *************************
@@ -81,65 +83,67 @@ export default function Application(props) {
     <div className="App">
       <BrowserRouter>
         <Navbar logout={handleLogout} loggedOut={state.isLoggedIn} />
-        <Routes>
-          <Route
-            exact
-            path="/"
-            element={
-              <div>
-                <h1>
-                  Welcome to Over9000. Work out plans designed to make as strong
-                  as your Hero Each plan consists of 6 excercises. You'll do one
-                  excerxise as many times as possible each day plus on rest day.
-                  Now choose your challenge:
-                </h1>
-                {/* {finalForm()}
-                <ul style={{ display: "flex", flexDirection: "column" }}>
-                  {exercisesTest}
-                </ul> */}
-                <CardList
-                  plans={state.plans}
-                  exercises={state.exercises}
-                  user={user}
-                  setUser={setUser}
-                  addLikes={addLikes}
-                  planList={plans}
-                />
-              </div>
-            }
-          />
-
-          <Route
-            exact
-            path="/login"
-            element={
-              <Login user={user} setUser={setUser} login={handleLogin} />
-            }
-          />
-
-          <Route
-            path="/signup"
-            element={
-              <SignUp user={user} setUser={setUser} login={handleLogin} />
-            }
-          />
-          <Route
-            path="/user"
-            element={
-              state.isLoggedIn ? (
+        <ConfigProvider theme={{ token: { colorPrimary: "orange" } }}>
+          <Routes>
+            <Route
+              exact
+              path="/"
+              element={
                 <div>
-                  <UserPage
-                    plan={state.plans[user.plan_id - 1]}
-                    user={user}
+                  <h1>
+                    Welcome to Over9000. Work out plans designed to make as
+                    strong as your Hero Each plan consists of 6 excercises.
+                    You'll do one excerxise as many times as possible each day
+                    plus on rest day. Now choose your challenge:
+                  </h1>
+                  <CardList
+                    plans={state.plans}
                     exercises={state.exercises}
+                    user={user}
+                    setUser={setUser}
+                    addLikes={addLikes}
+                    planList={plans}
                   />
                 </div>
-              ) : (
-                <div>Loading</div>
-              )
-            }
-          />
-        </Routes>
+              }
+            />
+
+            <Route
+              exact
+              path="/login"
+              element={
+                <Login user={user} setUser={setUser} login={handleLogin} />
+              }
+            />
+
+            <Route
+              path="/signup"
+              element={
+                <SignUp user={user} setUser={setUser} login={handleLogin} />
+              }
+            />
+            <Route
+              path="/user"
+              element={
+                state.isLoggedIn ? (
+                  <div>
+                    <UserPage
+                      plan={state.plans[user.plan_id - 1]}
+                      user={user}
+                      exercises={state.exercises}
+                    />
+                  </div>
+                ) : (
+                  <div>Loading</div>
+                )
+              }
+            />
+            <Route
+              path="/character"
+              element={<CharacterInfoPage plan={state.plans[1]} />}
+            />
+          </Routes>
+        </ConfigProvider>
       </BrowserRouter>
     </div>
   );

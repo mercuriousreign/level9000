@@ -5,7 +5,7 @@ import Button from "./Button";
 import { Button as ButtonD } from "antd";
 // import { Collapse , Card as CardM } from "@mui/material";
 import CollapsePanel from "antd/es/collapse/CollapsePanel";
-import { Collapse } from "antd";
+import { Collapse, Dropdown, Popover } from "antd";
 
 export default function CardListItem(props) {
   const {

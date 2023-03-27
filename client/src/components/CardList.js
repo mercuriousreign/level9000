@@ -29,6 +29,7 @@ export default function CardList(props) {
           width: 400,
         }}
         cover={<img src={plan.img}></img>}
+        onClick={() => console.log("Links to character page")}
       >
         <CardListItem
           planList={props.planList}
