@@ -109,7 +109,11 @@ export default function UserPage(props) {
 
   return (
     <div>
-      <h1 className="headerfont">Welcome to Your Dojo:</h1>
+      <div className="title">
+        {" "}
+        <h1 className="headerfont">Welcome to Your Dojo:</h1>
+      </div>
+
       {viewChar && (
         <div>
           <Button
