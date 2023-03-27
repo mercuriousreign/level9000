@@ -26,20 +26,45 @@ export default function CharacterInfoPage(props) {
   }
 
   return (
-    <div>
+    <div style={{ display: "flex" }}>
       <Card cover={<img src={plan.img} />} style={{ justifyContent: "center" }}>
         <h1 style={{ textAlign: "center" }}>{plan.name}</h1>
       </Card>
-      <div>
-        <Descriptions title={plan.name} bordered>
-          <Descriptions.Item label="Info">
-            <p>{plan.description}</p>{" "}
-          </Descriptions.Item>
-          <Descriptions.Item label="Likes">
-            <p>Likes : {counter}</p>
-            <Button onClick={handleLike}>Like me!</Button>
-          </Descriptions.Item>
-        </Descriptions>
+
+      <div
+        style={{
+          marginLeft: "3%",
+          marginRight: "3%",
+        }}
+      >
+        <Card>
+          <Descriptions
+            style={{ backgroundColor: "#ffa5002e" }}
+            layout="vertical"
+            bordered
+          >
+            <Descriptions.Item
+              labelStyle={{
+                color: "orange",
+                fontWeight: "bold",
+                backgroundColor: "black",
+              }}
+              label="Character Information"
+            >
+              <p1>{plan.description}</p1>{" "}
+            </Descriptions.Item>
+            <Descriptions.Item
+              labelStyle={{
+                color: "orange",
+                fontWeight: "bold",
+                backgroundColor: "black",
+              }}
+              label="Likes"
+            >
+              <h1>{counter}</h1>
+            </Descriptions.Item>
+          </Descriptions>
+        </Card>
       </div>
     </div>
   );
