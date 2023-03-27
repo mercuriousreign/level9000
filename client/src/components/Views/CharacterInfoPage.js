@@ -51,7 +51,7 @@ export default function CharacterInfoPage(props) {
               }}
               label="Character Information"
             >
-              <p1>{plan.description}</p1>{" "}
+              <p>{plan.description}</p>{" "}
             </Descriptions.Item>
             <Descriptions.Item
               labelStyle={{

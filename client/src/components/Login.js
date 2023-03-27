@@ -2,6 +2,8 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./Login.css";
+import image from "../img/over9000.gif";
 
 export default function Login(props) {
   let navigate = useNavigate();
@@ -55,35 +57,38 @@ export default function Login(props) {
     return handleErrors();
   }
   return (
-    <div>
+    <div className="login-form">
       <h1>Log In</h1>
       <form onSubmit={handleSubmit}>
-        <input
-          placeholder="username"
-          type="text"
-          name="username"
-          value={username}
-          onChange={(event) => setUsername(event.target.value)}
-        />
-        <input
-          placeholder="email"
-          type="text"
-          name="email"
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
-        />
-        <input
-          placeholder="password"
-          type="password"
-          name="password"
-          value={password}
-          onChange={(event) => setPassword(event.target.value)}
-        />
-        <button placeholder="submit" type="submit">
-          Log In
-        </button>
-        <div>
-          <Link to="/signup">sign up</Link>
+        <div className="input-field">
+          <input
+            placeholder="username"
+            type="text"
+            name="username"
+            value={username}
+            onChange={(event) => setUsername(event.target.value)}
+          />
+        </div>
+        <div className="input-field">
+          <input
+            placeholder="email"
+            type="text"
+            name="email"
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+          />
+        </div>
+        <div className="input-field">
+          <input
+            placeholder="password"
+            type="password"
+            name="password"
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+          />
+        </div>
+        <div className="action">
+          <button type="submit">Log In</button>
         </div>
       </form>
     </div>

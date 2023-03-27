@@ -27,6 +27,8 @@ export default function CardList(props) {
         hoverable
         style={{
           width: 400,
+          backgroundColor: "#a4a299de",
+          color: "white",
         }}
         cover={<img src={plan.img}></img>}
         onClick={() => console.log("Links to character page")}

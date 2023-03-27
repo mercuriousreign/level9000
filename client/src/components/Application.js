@@ -13,6 +13,7 @@ import Login from "./Login";
 import SignUp from "./SignUp";
 import CharacterInfoPage from "./Views/CharacterInfoPage";
 import { ConfigProvider } from "antd";
+import image from "../img/over9000.gif";
 
 export default function Application(props) {
   ////**************** Progress tracker  *************************
@@ -80,7 +81,18 @@ export default function Application(props) {
   // });
   console.log("exercisesTest", state.exercises);
   return (
-    <div className="App">
+    <div
+      className="App"
+      style={{
+        backgroundImage: `url(${image})`,
+
+        height: "100%",
+
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+      }}
+    >
       <BrowserRouter>
         <Navbar logout={handleLogout} loggedOut={state.isLoggedIn} />
         <ConfigProvider theme={{ token: { colorPrimary: "orange" } }}>
@@ -90,12 +102,6 @@ export default function Application(props) {
               path="/"
               element={
                 <div>
-                  <h1>
-                    Welcome to Over9000. Work out plans designed to make as
-                    strong as your Hero Each plan consists of 6 excercises.
-                    You'll do one excerxise as many times as possible each day
-                    plus on rest day. Now choose your challenge:
-                  </h1>
                   <CardList
                     plans={state.plans}
                     exercises={state.exercises}

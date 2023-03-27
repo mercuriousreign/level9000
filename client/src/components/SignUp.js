@@ -56,7 +56,7 @@ export default function SignUp(props) {
     return handleErrors();
   }
   return (
-    <div>
+    <div className="login-form">
       <h1>Sign Up</h1>
       <form onSubmit={handleSubmit}>
         <input

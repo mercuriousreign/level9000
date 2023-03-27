@@ -3,6 +3,7 @@ import { Calendar, Button, Checkbox, Collapse } from "antd";
 import "../Calendar/DayListItem.css";
 import CharacterPage from "./CharacterPage";
 import axios from "axios";
+import "./UserPage.css";
 import { Link, Route } from "react-router-dom";
 import CharacterInfoPage from "./CharacterInfoPage";
 import { cleanup, render } from "@testing-library/react";
@@ -108,6 +109,7 @@ export default function UserPage(props) {
 
   return (
     <div>
+      <h1 className="headerfont">Welcome to Your Dojo:</h1>
       {viewChar && (
         <div>
           <Button
@@ -122,29 +124,30 @@ export default function UserPage(props) {
         </div>
       )}
       {!viewChar && (
-        <div>
-          <h1 className="headerfont">Planned schedule</h1>
+        <div style={{}}>
           {props.plan && (
             <Button
-              ghost
+              size="large"
               onClick={linkCharacter}
-              style={{ marginBottom: "1%" }}
+              style={{ marginBottom: "0%", marginLeft: "1.5%" }}
             >
               More character Info
             </Button>
           )}
-          {props.plan && (
-            <CharacterPage
-              name={props.plan.name}
-              img={props.plan.FinalForm}
-              exercises={exercises}
-              user={props.user}
-            />
-          )}
-          {!props.plan && <h1>GO CHOOSE A PLAN!!!!</h1>}
+          <div className="container">
+            {props.plan && (
+              <CharacterPage
+                name={props.plan.name}
+                img={props.plan.FinalForm}
+                exercises={exercises}
+                user={props.user}
+              />
+            )}
+            {!props.plan && <h1>GO CHOOSE A PLAN!!!!</h1>}
 
-          <div className="calendarborder">
-            <Calendar dateCellRender={(date) => dayItem(date)} />
+            <div className="calendarborder">
+              <Calendar dateCellRender={(date) => dayItem(date)} />
+            </div>
           </div>
         </div>
       )}
