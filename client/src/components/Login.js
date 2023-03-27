@@ -57,40 +57,43 @@ export default function Login(props) {
     return handleErrors();
   }
   return (
-    <div className="login-form">
-      <h1>Log In</h1>
-      <form onSubmit={handleSubmit}>
-        <div className="input-field">
-          <input
-            placeholder="username"
-            type="text"
-            name="username"
-            value={username}
-            onChange={(event) => setUsername(event.target.value)}
-          />
-        </div>
-        <div className="input-field">
-          <input
-            placeholder="email"
-            type="text"
-            name="email"
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-          />
-        </div>
-        <div className="input-field">
-          <input
-            placeholder="password"
-            type="password"
-            name="password"
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-          />
-        </div>
-        <div className="action">
-          <button type="submit">Log In</button>
-        </div>
-      </form>
+    <div className="login">
+      {" "}
+      <div className="login-form">
+        <h1>Log In</h1>
+        <form onSubmit={handleSubmit}>
+          <div className="input-field">
+            <input
+              placeholder="username"
+              type="text"
+              name="username"
+              value={username}
+              onChange={(event) => setUsername(event.target.value)}
+            />
+          </div>
+          <div className="input-field">
+            <input
+              placeholder="email"
+              type="text"
+              name="email"
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+            />
+          </div>
+          <div className="input-field">
+            <input
+              placeholder="password"
+              type="password"
+              name="password"
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
+            />
+          </div>
+          <div className="action">
+            <button type="submit">Log In</button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }

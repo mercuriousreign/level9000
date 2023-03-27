@@ -43,7 +43,7 @@ plan7 = Plan.create(name: 'Naruto Uzumaki',
                     FinalForm: 'https://media.tenor.com/xphCIO5bTqYAAAAM/narutohokage.gif')
 
 plan8 = Plan.create(name: 'Potato Potator',
-                    img: 'https://spudsmart.com/wp-content/uploads/2021/04/7.-20-Most-potato-Cayman-HZPC-scaled-1.jpg', description: 'Loved by the Frenchman.',
+                    img: 'https://spudsmart.com/wp-content/uploads/2021/04/7.-20-Most-potato-Cayman-HZPC-scaled-1.jpg', description: 'Oh, the glorious potato! It\'s not just a root vegetable, it\'s a culinary superstar that has captured the hearts and taste buds of people around the world. The humble potato is a versatile ingredient that can be transformed into so many delicious dishes - from crispy fries to silky mashed potatoes, and hearty stews to creamy soups. It\'s a staple ingredient that has fed millions for centuries, and has saved countless lives during times of famine. And let\'s not forget about its nutritional value - potatoes are an excellent source of energy, fiber, and important vitamins and minerals. To put it simply, the potato is a true wonder of nature that deserves to be celebrated and enjoyed in all its delicious forms!',
                     FinalForm: 'https://media.tenor.com/p8sDv__ZupQAAAAC/poutine-canadian.gif')
 # plan9 = Plan.create(name: 'Saitama',
 #                     img: 'https://qph.cf2.quoracdn.net/main-qimg-c8010b4775bf02d599e659ae309f863e-pj')
