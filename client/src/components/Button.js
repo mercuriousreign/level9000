@@ -59,15 +59,15 @@ export default function Button(props) {
   return (
     <div>
       <button
-       style={{
-        backgroundColor: selected ? "gray" : "blue",
-        color: "white",
-        border: "none",
-        padding: "10px",
-        borderRadius: "5px",
-        cursor: selected ? "default" : "pointer",
-        opacity: selected ? "0.7" : "1",
-      }}    
+        style={{
+          backgroundColor: selected ? "gray" : "rgb(116 114 105 / 70%)",
+          color: "white",
+          border: "none",
+          padding: "10px",
+          borderRadius: "5px",
+          cursor: selected ? "default" : "pointer",
+          opacity: selected ? "0.7" : "1",
+        }}
         onClick={() => {
           handleClick(id);
           redirect();

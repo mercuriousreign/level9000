@@ -45,16 +45,22 @@ export default function CardListItem(props) {
       {planList[id - 1] && <h2 className="">{planList[id - 1].likes}</h2>}
 
       <Collapse>
-        <CollapsePanel header="Exercises">
-          <Button
-            user={user}
-            setUser={setUser}
-            id={id}
-            plan={name}
-            selected={isSelected}
-            onSelect={onSelect}
-          />
-          <ButtonD onClick={change}>Like Counter</ButtonD>
+        <CollapsePanel
+          header="Exercises"
+          style={{ backgroundColor: "rgb(116 114 105 / 70%)" }}
+        >
+          <div style={{ display: "flex" }}>
+            <Button
+              user={user}
+              setUser={setUser}
+              id={id}
+              plan={name}
+              selected={isSelected}
+              onSelect={onSelect}
+            />
+            <ButtonD onClick={change}>Like Counter</ButtonD>
+          </div>
+
           <div className="list">
             <ol>{exerciseList}</ol>
           </div>
