@@ -28,7 +28,6 @@ export default function UserPage(props) {
     const exerciseList = exerciseIndex[parseInt(planID) - 1].map(
       (each, index) => (
         <CollapsePanel
-          headerStyle={{ fontWeight: "bold" }}
           showArrow={false}
           // header={props.exercises[parseInt(each)].name}
           extra={<h3>{props.exercises[parseInt(each)].name}</h3>}
