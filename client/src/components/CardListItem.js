@@ -62,7 +62,7 @@ export default function CardListItem(props) {
               selected={isSelected}
               onSelect={onSelect}
             />
-            <ButtonD onClick={change}>Like Counter</ButtonD>
+            <ButtonD onClick={change}>Like 🧡</ButtonD>
           </div>
 
           <div className="list">

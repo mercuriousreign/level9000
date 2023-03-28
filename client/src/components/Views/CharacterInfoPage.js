@@ -26,7 +26,7 @@ export default function CharacterInfoPage(props) {
   }
 
   return (
-    <div style={{ display: "flex" }}>
+    <div style={{ display: "flex", paddingBottom: "450px" }}>
       <Card cover={<img src={plan.img} />} style={{ justifyContent: "center" }}>
         <h1 style={{ textAlign: "center" }}>{plan.name}</h1>
       </Card>

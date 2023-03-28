@@ -29,6 +29,7 @@ export default function CardList(props) {
           width: 400,
           backgroundColor: "#a4a299de",
           color: "white",
+          marginBottom: "20px",
         }}
         cover={
           <div

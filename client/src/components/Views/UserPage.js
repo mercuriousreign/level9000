@@ -120,7 +120,6 @@ export default function UserPage(props) {
       {viewChar && (
         <div>
           <Button
-            ghost
             onClick={linkCharacter}
             style={{ marginBottom: "3%", marginTop: "3%" }}
             value={"large"}
@@ -152,7 +151,7 @@ export default function UserPage(props) {
             )}
             {!props.plan && <h1>GO CHOOSE A PLAN!!!!</h1>}
 
-            <div className="calendarborder">
+            <div className="">
               <Calendar dateCellRender={(date) => dayItem(date)} />
             </div>
           </div>
