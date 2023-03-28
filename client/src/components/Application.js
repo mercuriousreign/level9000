@@ -144,7 +144,23 @@ export default function Application(props) {
                     />
                   </div>
                 ) : (
-                  <div>Loading</div>
+                  <div
+                    style={{
+                      paddingBottom: "400px",
+                      display: "flex",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <h1
+                      style={{
+                        color: "yellow",
+                        padding: "300px",
+                        fontSize: "125px",
+                      }}
+                    >
+                      Loading...
+                    </h1>
+                  </div>
                 )
               }
             />

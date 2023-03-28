@@ -30,7 +30,27 @@ export default function CardList(props) {
           backgroundColor: "#a4a299de",
           color: "white",
         }}
-        cover={<img src={plan.img}></img>}
+        cover={
+          <div
+            style={{
+              width: "390px" /* desired width of the cropped image */,
+              height: "250px" /* desired height of the cropped image */,
+              overflow: "hidden",
+              display: "inline-block" /* arrange the images horizontally */,
+              margin: "5px",
+            }}
+          >
+            <img
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                objectPosition: "center",
+              }}
+              src={plan.img}
+            ></img>
+          </div>
+        }
         onClick={() => console.log("Links to character page")}
       >
         <CardListItem

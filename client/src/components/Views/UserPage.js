@@ -30,7 +30,11 @@ export default function UserPage(props) {
         <CollapsePanel
           showArrow={false}
           // header={props.exercises[parseInt(each)].name}
-          extra={<h3>{props.exercises[parseInt(each)].name}</h3>}
+          extra={
+            <h3 style={{ color: "black" }}>
+              {props.exercises[parseInt(each)].name}
+            </h3>
+          }
         >
           <li key={index}>
             {" "}
