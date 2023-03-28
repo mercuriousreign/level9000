@@ -13,7 +13,7 @@ import Login from "./Login";
 import SignUp from "./SignUp";
 import CharacterInfoPage from "./Views/CharacterInfoPage";
 import { ConfigProvider } from "antd";
-import image from "../img/over9000.gif";
+import image from "../img/vegeta.gif";
 
 export default function Application(props) {
   ////**************** Progress tracker  *************************
