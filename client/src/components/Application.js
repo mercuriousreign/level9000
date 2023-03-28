@@ -95,7 +95,11 @@ export default function Application(props) {
     >
       <BrowserRouter>
         <Navbar logout={handleLogout} loggedOut={state.isLoggedIn} />
-        <ConfigProvider theme={{ token: { colorPrimary: "#342f2f" } }}>
+        <ConfigProvider
+          theme={{
+            token: { colorPrimary: "#342f2f", colorTextHeading: "white" },
+          }}
+        >
           <Routes>
             <Route
               exact

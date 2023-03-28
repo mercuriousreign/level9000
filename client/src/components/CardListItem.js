@@ -44,10 +44,14 @@ export default function CardListItem(props) {
       <h2 className="">{name}</h2>
       {planList[id - 1] && <h2 className="">{planList[id - 1].likes}</h2>}
 
-      <Collapse>
+      <Collapse headerStyle={{ color: "white" }}>
         <CollapsePanel
           header="Exercises"
-          style={{ backgroundColor: "rgb(116 114 105 / 70%)" }}
+          style={{
+            fontSize: "large",
+            backgroundColor: "rgb(116 114 105 / 70%)",
+            color: "white",
+          }}
         >
           <div style={{ display: "flex" }}>
             <Button
