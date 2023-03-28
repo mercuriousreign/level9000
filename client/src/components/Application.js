@@ -84,7 +84,8 @@ export default function Application(props) {
     <div
       className="App"
       style={{
-        backgroundImage: `url(${image})`,
+        backgroundImage:
+          'url("https://github.com/YoussefBenAmmar/level9000/blob/polishing/css/client/src/img/vegeta2.gif?raw=true")',
 
         height: "100%",
 
